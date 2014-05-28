@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/favicon.ico">
+
+    <title>Mobilize Applications</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+<style>
+.navbar-brand,
+.navbar-nav > li > a {padding-top:5px !important; padding-bottom:5px !important;}
+.navbar {min-height:30px !important;}
+.navbar-brand {height:30px !important; padding-left:5px !important; padding-right:0px !important; float:none !important;}
+.navbar-toggle {height:30px !important; padding:5px !important; margin-top:2px !important; margin-bottom:2px !important;}
+#iframe{
+	top: 30px;
+	bottom: 0px;
+	position: absolute;
+	width: 100%;
+	padding: 0;
+}
+.container iframe{
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	border: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+</style>
+  </head>
+
+  <body>
+    <div id="navbar">
+<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img src="assets/logo.png" alt="Mobilize" height="30px"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="?web" rel="noreferrer">Web Frontend</a></li>
+        <li><a href="?survey">Survey Taking</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Exploration <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="?monitor">Campaign Monitoring</a></li>
+            <li><a href="?dashboard">Interactive Dashboard</a></li>
+            <li><a href="?plotapp">Plot App</a></li>
+	    <li><a target="_blank" href="https://rstudio.mobilizingcs.org/">RStudio</a></li>
+          </ul>
+        </li>
+        <li><a href="?teacher">Class Setup</a></li>
+        <li><a href="?authoring">Campaign Authoring</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+	<li><a target="_blank" href="https://wiki.mobilizingcs.org">Help</a></li>
+	<li id="login-li"><a id="login" href="/navbar/web/#login">Log in</a></li>
+	<li style="display:none;" id="username-li" class="dropdown">
+        <a id="username" href="#" data-toggle="dropdown">username</a>
+	  <ul class="dropdown-menu">
+	    <li><a href="#">Change Password</a></li>
+	  </ul>
+	</li>
+	<li style="display:none;" id="logoutlink"><a href="#" title="Log out"><span class="glyphicon glyphicon-log-out"></span></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</div>
+    <div id="landing" class="container-fluid" style="top:30px;position:absolute;width=100%;">
+    <div class="page-header">
+  <h2><img src="assets/login-logo-mobilize.png" height="50"> Web Tools <small>select a tool to get started</small></h2>
+</div>
+
+      <div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-lg-offset-1 col-lg-10">
+          <div class="row-fluid">
+            <div class=" col-6 col-sm-6 col-lg-4">
+                <h3 class="text-primary text-center">Web Frontend</h3>
+              <a href="?web" rel="noreferrer"><img src="assets/web.png" alt="web" class="img-thumbnail"></a>
+              <p>Data management and visualization</p>
+            </div><!--/span-->
+            <div class=" col-6 col-sm-6 col-lg-4">
+                <h3 class="text-primary text-center">Survey Taking</h3>
+              <a href="?survey"><img src="assets/survey.png" alt="web" class="img-thumbnail"></a>
+              <p>Browser-based data collection tool</p>
+            </div><!--/span-->
+            <div class=" col-6 col-sm-6 col-lg-4">
+                <h3 class="text-primary text-center">Class Setup</h3>
+              <a href="?teacher"><img src="assets/classsetup.png" alt="web" class="img-thumbnail"></a>
+              <p>LAUSD Teacher class creation tool</p>
+            </div><!--/span-->
+            <div class=" col-6 col-sm-6 col-lg-4">
+                <h3 class="text-primary text-center">Authoring Tool</h3>
+              <a href="?authoring"><img src="assets/authoring.png" alt="web" class="img-thumbnail"></a>
+              <p>Interactive campaign creation</p>
+            </div><!--/span-->
+            <div class=" col-6 col-sm-6 col-lg-4">
+                <h3 class="text-primary text-center">Dashboard</h3>
+              <a href="?dashboard"><img src="assets/dashboard.png" alt="web" class="img-thumbnail"></a>
+             <p>Interactive data exploration. Also available: <a target="_blank" href="/publicdashboard">Public board</a></p>
+            </div><!--/span-->
+            <div class=" col-6 col-sm-6 col-lg-4">
+                <h3 class="text-primary text-center">Plot App</h3>
+              <a href="?plotapp"><img src="assets/plotapp.png" alt="web" class="img-thumbnail"></a>
+              <p>R-based data exploration</p>
+            </div><!--/span-->
+            <div class=" col-6 col-sm-6 col-lg-4">
+                <h3 class="text-primary text-center">RStudio</h3>
+              <a target="_blank" href="https://rstudio.mobilizingcs.org/"><img src="assets/rstudio.png" alt="web" class="img-thumbnail"></a>
+              <p>User-friendly interface for R</p>
+            </div><!--/span-->
+            <div class=" col-6 col-sm-6 col-lg-4">
+                <h3 class="text-primary text-center">Campaign Monitor</h3>
+              <a  href="?monitor"><img src="assets/monitoring.png" class="img-thumbnail" alt="monitor"></a>
+              <p>Campaign progress tracking tool</p>
+            </div><!--/span-->
+            <div class=" col-6 col-sm-6 col-lg-4">
+                <h3 class="text-primary text-center">Wiki</h3>
+              <a target="_blank" href="https://wiki.mobilizingcs.org"><img src="assets/wiki.png" class="img-thumbnail" alt="wiki"></a>
+              <p>All materials: curricula, how-to guides, video tutorials, etc.</p>
+            </div><!--/span-->
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->
+	<hr>
+	<div class="row">
+        <div class="col-xs-12 col-sm-12">
+  <h2><img src="assets/login-logo-mobilize.png" height="50"> Mobile Apps <small>"UCLA MobilizingCS"</small></h2>
+          <div class="row">
+	            <div class=" col-6 col-sm-6 col-lg-6">
+                <h3 class="text-primary text-center">Android</h3>
+              <p class="text-center"><a target="_blank" href="https://play.google.com/store/apps/details?id=org.ohmage.mobilizingcs&hl=en"><img src="assets/android.png" height="200" alt="android"></a></p>
+              <p class="text-center">Download for your android phone or tablet!</p>
+            </div><!--/span-->
+          <div class="row-fluid">
+                    <div class=" col-6 col-sm-6 col-lg-6">
+                <h3 class="text-primary text-center">iOS</h3>
+              <p class="text-center" ><a target="_blank" href="https://itunes.apple.com/us/app/ucla-mobilizingcs/id601202066?mt=8"><img src="assets/ios.jpg" height="200" alt="ios"></a></p>
+              <p class="text-center" >Download for your iPhone, iPad or iPod touch!</p>
+            </div><!--/span-->
+	</div>
+	</div>
+	</div>
+	</div>
+	<hr>
+	<div class="row">
+      <footer>
+	<!--<p class="text-center lead">For more help, please visit our wiki at <a href="https://wiki.mobilizingcs.org/">wiki.mobilizingcs.org</a></p>-->
+  	<small>This material is based upon work supported by the National Science Foundation under Grant Number 0962919. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation. For more information about the Mobilize grant please visit <a href="http://www.mobilizingcs.org/">www.mobilizingcs.org</a><small>
+      </footer>
+	</div>
+
+    </div><!--/.container-->
+    <div id="iframe" class="container" style="display:none;">
+	<iframe name="meta_iframe"> </iframe>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/underscore.min.js"></script>
+    <script src="js/ohmage.js"></script>
+<script>
+$(function(){
+	checkUsername();
+});
+if(window.location.search){
+	checkUsername();
+	$('a[href="'+window.location.search+'"]').parent().addClass('active');
+	$("#landing").hide();
+	$("#iframe").show();
+	$("iframe").attr("src", "/navbar/"+decodeURIComponent(window.location.search.substr(1)));
+};
+function checkUsername() {
+  oh.user.whoami(function(name){
+    if(name != null){
+	$("#username").text(name);
+	$("#username-li").show();
+	$("#login-li").hide();
+	$("#logoutlink").show();
+    }else{
+	$("#username-li").hide();
+	$("#login-li").show();
+	$("#logoutlink").hide();
+    }
+    
+  });
+};
+  $("#logoutlink").on("click", function(){
+    oh.logout(function(){
+      window.location = "/";
+    });
+  });
+</script>
+  </body>
+</html>
