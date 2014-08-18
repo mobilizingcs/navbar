@@ -13,6 +13,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/boostrapValidator.min.css" rel="stylesheet"/>
 <style>
 .navbar-brand,
 .navbar-nav > li > a {padding-top:5px !important; padding-bottom:5px !important;}
@@ -34,13 +35,12 @@
 	height: 100%;
 	width: 100%;
 }
-
 </style>
   </head>
 
   <body>
-    <div id="navbar">
-<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+    <div id="unified-navbar">
+<nav class="navbar navbar-fixed-top navbar-inverse unified" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -56,9 +56,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="?web" rel="noreferrer">Web Frontend</a></li>
-        <li><a href="?survey">Survey Taking</a></li>
-        <li class="dropdown">
+        <li class="visible-md visible-lg"><a href="?web" rel="noreferrer">Web Frontend</a></li>
+        <li class="visible-xs visible-sm"><a href="?web" rel="noreferrer">Frontend</a></li>
+        <li class="visible-md visible-lg"><a href="?survey">Survey Taking</a></li>
+        <li class="visible-xs visible-sm"><a href="?survey">Survey</a></li>
+        <li class="dropdown visible-md visible-lg">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Exploration <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="?monitor">Campaign Monitoring</a></li>
@@ -67,17 +69,29 @@
 	    <li><a target="_blank" href="https://rstudio.mobilizingcs.org/">RStudio</a></li>
           </ul>
         </li>
+        <li class="dropdown visible-xs visible-sm">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Exp <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="?monitor">Campaign Monitoring</a></li>
+            <li><a href="?dashboard">Interactive Dashboard</a></li>
+            <li><a href="?plotapp">Plot App</a></li>
+            <li><a target="_blank" href="https://rstudio.mobilizingcs.org/">RStudio</a></li>
+          </ul>
+        </li>
         <li><a href="?teacher">Class Setup</a></li>
-        <li><a href="?authoring">Campaign Authoring</a></li>
+        <li class="visible-md visible-lg"><a href="?authoring">Campaign Authoring</a></li>
+        <li class="visible-xs visible-sm"><a href="?authoring">Author</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-	<li><a target="_blank" href="https://wiki.mobilizingcs.org">Help</a></li>
-	<li id="login-li"><a id="login" href="/navbar/web/#login">Log in</a></li>
-	<li style="display:none;" id="username-li" class="dropdown">
-        <a id="username" href="#" data-toggle="dropdown">username</a>
-	  <ul class="dropdown-menu">
-	    <li><a href="#">Change Password</a></li>
-	  </ul>
+	<li class="dropdown"><a href="#" data-toggle="dropdown">Help</a>
+	 <ul class="dropdown-menu">
+	  <li><a target="_blank" href="https://wiki.mobilizingcs.org/">Wiki</a></li>
+	  <li><a data-toggle="modal" data-target="#contact-modal">Contact</a></li>
+	 </ul>
+	</li>
+	<li id="login-li"><a id="login" href="?login">Log in</a></li>
+	<li style="display:none;" id="username-li">
+        <a data-toggle="modal" data-target="#user-modal" href="#user-modal"><span class="glyphicon glyphicon-user"></span> <span id="username">username</span></a>
 	</li>
 	<li style="display:none;" id="logoutlink"><a href="#" title="Log out"><span class="glyphicon glyphicon-log-out"></span></a></li>
       </ul>
@@ -166,36 +180,54 @@
 	<div class="row">
       <footer>
 	<!--<p class="text-center lead">For more help, please visit our wiki at <a href="https://wiki.mobilizingcs.org/">wiki.mobilizingcs.org</a></p>-->
-  	<small>This material is based upon work supported by the National Science Foundation under Grant Number 0962919. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation. For more information about the Mobilize grant please visit <a href="http://www.mobilizingcs.org/">www.mobilizingcs.org</a><small>
+  	<small>This material is based upon work supported by the National Science Foundation under Grant Number 0962919. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation. For more information about the Mobilize grant please visit <a href="http://www.mobilizingcs.org/">www.mobilizingcs.org</a></small>
       </footer>
 	</div>
 
     </div><!--/.container-->
     <div id="iframe" class="container" style="display:none;">
-	<iframe name="meta_iframe"> </iframe>
+	<iframe name="meta_iframe" id="meta_iframe"> </iframe>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/underscore.min.js"></script>
     <script src="js/ohmage.js"></script>
+    <script src="js/bootstrapValidator.min.js"></script>
 <script>
 $(function(){
 	checkUsername();
 });
 if(window.location.search){
-	checkUsername();
-	$('a[href="'+window.location.search+'"]').parent().addClass('active');
-	$("#landing").hide();
-	$("#iframe").show();
-	$("iframe").attr("src", "/navbar/"+decodeURIComponent(window.location.search.substr(1)));
+	if(window.location.search!=="?login"){
+	  checkUsername();
+	  $('a[href="'+window.location.search+'"]').parent().addClass('active');
+	  $("#landing").hide();
+	  $("#iframe").show();
+	  console.log("first: "+decodeURIComponent(window.location.search.substr(1)));
+	  
+	  $("iframe").attr("src", "/navbar/"+decodeURIComponent(window.location.search.substr(1)));
+	  console.log("second: "+$("iframe").attr("src"));
+	} else {
+	  $("iframe").attr("src", "/navbar/web/");
+          $("#landing").hide();
+          $("#iframe").show();
+	};
 };
 function checkUsername() {
   oh.user.whoami(function(name){
     if(name != null){
 	$("#username").text(name);
+	$("#user-modal-username").text(name);
 	$("#username-li").show();
 	$("#login-li").hide();
 	$("#logoutlink").show();
+	oh.user.read(name, function(r){
+		console.log(JSON.stringify(r));
+		$("#user-modal-firstname").text(r[name]["first_name"] ? r[name]["first_name"] : "unknown");
+                $("#user-modal-lastname").text(r[name]["last_name"] ? r[name]["last_name"] : "unknown");
+                $("#user-modal-org").text(r[name]["organization"] ? r[name]["organization"] : "unknown");
+                $("#user-modal-email").text(r[name]["email_address"] ? r[name]["email_address"] : "unknown");
+	});
     }else{
 	$("#username-li").hide();
 	$("#login-li").show();
@@ -204,11 +236,146 @@ function checkUsername() {
     
   });
 };
-  $("#logoutlink").on("click", function(){
-    oh.logout(function(){
-      window.location = "/";
-    });
+$("#logoutlink").on("click", function(){
+  oh.logout(function(){
+    window.location = "/";
   });
+});
+$("#meta_iframe").load(function() {
+  checkUsername();
+});
+$(document).ready(function() {
+    $('#ChangePwForm').bootstrapValidator({
+        message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            pw1: {
+                validators: {
+                    notEmpty: {
+                        message: 'Required Field'
+                    }
+                }
+            },
+            pw2: {
+                validators: {
+                    notEmpty: {
+                        message: 'Required Field'
+                    },
+		    stringLength: {
+			message: 'New password must be at least 8 characters',
+			min: 8
+		    }
+                }
+            },
+            pw3: {
+                validators: {
+                    notEmpty: {
+                        message: 'Required Field'
+                    },
+                    identical: {
+                        field: 'pw2',
+                        message: 'The passwords do not match'
+                    }   
+                }
+            }
+        }
+    })
+    .on('success.form.bv', function(e) {
+      e.preventDefault();
+	oh.user.password($("#username").text(), $("#pw1").val(), $("#username").text(), $("#pw2").val(), function(res){
+	  alert("Successfully changed password!");
+	  $("#ChangePwCollapse").collapse('hide');
+	  $("#pw1").val('');
+          $("#pw2").val('');
+          $("#pw3").val('');
+	  $(".modal .btn").removeAttr("disabled");
+	});
+    });
+});
 </script>
-  </body>
+<div class="modal fade" id="contact-modal" tabIndex="-1" role="dialog" aria-labelledby="contact-modalLabel" aria-hidden="true">
+ <div class="modal-dialog">
+  <div class="modal-content">
+   <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title">Contact Us</h4>
+   </div>
+   <div class="modal-body">
+    <h4>
+    <dl class="dl-horizontal">
+     <dt>E-mail address</dt>
+     <dd><a target="_blank" href="mailto:support@mobilizingcs.org">support@mobilizingcs.org</a></dd>
+     <dt>Text/Voicemail</dt>
+     <dd><a target="_blank" href="tel:818-527-2367">(818) 527-2367</a></dd>
+    </dl>
+    </h4>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="modal fade" id="user-modal" tabIndex="-1" role="dialog" aria-labelledby="user-modalLabel" aria-hidden="true">
+ <div class="modal-dialog">
+  <div class="modal-content">
+   <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="user-modal-username">user</h4>
+   </div>
+   <div class="modal-body">
+    <dl class="dl-horizontal">
+     <dt>First Name</dt>
+     <dd id="user-modal-firstname"></dd>
+     <dt>Last Name</dt>
+     <dd id="user-modal-lastname"></dd>
+     <dt>School</dt>
+     <dd id="user-modal-org"></dd>
+     <dt>E-mail</dt>
+     <dd id="user-modal-email"></dd>
+     </dl>
+   <div class="panel-group" id="ChangePwAccordion">
+    <div class="panel panel-default">
+     <div class="panel-heading" data-toggle="collapse" href="#ChangePwCollapse">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#ChangePwAccordion" href="#ChangePwCollapse"><span class="glyphicon glyphicon-chevron-down"></span> Change Password</a>
+      </h4>
+     </div>
+     <div id="ChangePwCollapse" class="panel-collapse collapse">
+      <div class="panel-body">
+       <form id="ChangePwForm" method="post" class="form-horizontal">
+        <div class="form-group">
+         <label class="col-md-5 control-label">Current Password</label>
+          <div class="col-md-6">
+           <input type="password" class="form-control" id="pw1" name="pw1" />
+          </div>
+        </div>
+        <div class="form-group">
+         <label class="col-md-5 control-label">New Password</label>
+          <div class="col-md-6">
+           <input type="password" class="form-control" id="pw2" name="pw2" />
+          </div>
+        </div>
+        <div class="form-group">
+         <label class="col-md-5 control-label">Repeat New Password</label>
+          <div class="col-md-6">
+           <input type="password" class="form-control" id="pw3" name="pw3" />
+          </div>
+        </div>
+        <div class="form-group">
+         <div class="col-md-5 col-md-offset-3">
+          <button type="submit" class="btn btn-default">Submit</button>
+         </div>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  </div>
+   </div> <!--modal-body-->
+  </div>
+ </div>
+</div>
+</body>
 </html>

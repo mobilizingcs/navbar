@@ -317,7 +317,17 @@ oh.user.read = function(user_list, cb){
         });
         return req;
 };
-
+oh.user.password = function(user, password, username, new_password, cb){
+	return oh.call("/user/change_password", {
+		user : user,
+		password : password,
+		username : username,
+		new_password : new_password
+	}, function(res){
+		if(!cb) return;
+		cb(res)
+	});
+}
 
 
 oh.utils.parsecsv = function(string){
