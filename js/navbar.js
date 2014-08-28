@@ -7,7 +7,7 @@ if (window != window.top) {
 
         //initiate the client
         var oh = Ohmage("/app", "mobilize-navbar");
-        var iframe = $("#meta_iframe");    
+        var iframe = $("#meta_iframe");
 
         //hide on page load
         $("#username-li").hide();
@@ -52,7 +52,7 @@ if (window != window.top) {
                 $("#login-li").show();
             }).always(function(){
                 $("#help").show();
-            });        
+            });
         }
     });
 }
@@ -94,7 +94,7 @@ $(document).ready(function() {
                 identical: {
                     field: 'pw2',
                     message: 'The passwords do not match'
-                }   
+                }
             }
         }
     }
