@@ -1,0 +1,20 @@
+.navbar-brand,
+.navbar-nav > li > a {padding-top:5px !important; padding-bottom:5px !important;}
+.navbar {min-height:30px !important;}
+.navbar-brand {height:30px !important; padding-left:5px !important; padding-right:0px !important; float:none !important;}
+.navbar-toggle {height:30px !important; padding:5px !important; margin-top:2px !important; margin-bottom:2px !important;}
+#iframe{
+	top: 30px;
+	bottom: 0px;
+	position: absolute;
+	width: 100%;
+	padding: 0;
+}
+.container iframe{
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	border: 0px;
+	height: 100%;
+	width: 100%;
+}
