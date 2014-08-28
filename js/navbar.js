@@ -23,6 +23,13 @@ if (window != window.top) {
             })
         });
 
+        //steven's hacky nginx redirects
+        var shortcut = window.location.search.replace(/^[?]/, "")
+        if(shortcut){
+            iframe.attr("src", "/navbar/" + shortcut);
+             window.location.search = "";
+        }
+
         //watch iframe changes
         iframe.on("load", function(){
             //update the browser address bar
