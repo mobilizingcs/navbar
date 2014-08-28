@@ -19,7 +19,7 @@ if (window != window.top) {
         $("#logoutlink").click(function(e){
             e.preventDefault();
             oh.logout().always(function(){
-                window.location.replace("home.html");
+                window.location.reload();
             })
         });
 
