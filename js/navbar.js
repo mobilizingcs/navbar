@@ -56,7 +56,54 @@ if (window != window.top) {
                     $("#user-modal-org").text(r[name]["organization"] || "unknown");
                     $("#user-modal-email").text(r[name]["email_address"] || "unknown");
                 });
+
+                //the change password modal
+                $('#ChangePwForm').bootstrapValidator({
+                    message: 'This value is not valid',
+                    feedbackIcons: {
+                        valid: 'glyphicon glyphicon-ok',
+                        invalid: 'glyphicon glyphicon-remove',
+                        validating: 'glyphicon glyphicon-refresh'
+                    },
+                    fields: {
+                        pw1: { validators: {
+                            notEmpty: { message: 'Required Field' }
+                        }},
+                        pw2: { validators: {
+                            notEmpty: { message: 'Required Field' },
+                            stringLength: { message: 'New password must be at least 8 characters', min: 8 }
+                        }},
+                        pw3: {
+                        validators: {
+                            notEmpty: { message: 'Required Field' },
+                            identical: { field: 'pw2', message: 'The passwords do not match' }
+                        }}
+                    }
+                }).on('success.form.bv', function(e) {
+                    e.preventDefault();
+                    updatePassword();
+                });
+
+                //function to update password
+                function updatePassword(){
+                   oh.user.change_password({
+                        user : name,
+                        username : name,
+                        password : $("#pw1").val(),
+                        new_password : $("#pw2").val()
+                    }).done(function(){
+                        alert("Successfully changed password!");
+                         $("#ChangePwCollapse").collapse('hide');
+                         $("#pw1").val('');
+                         $("#pw2").val('');
+                         $("#pw3").val('');
+                         $(".modal .btn").removeAttr("disabled");
+                    }).error(function(msg){
+                        alert("error: " + msg)
+                    });
+                }
             }).error(function(){
+                //if user is not logged in, show login link
                 $("#login-li").show();
             }).always(function(){
                 $("#help").show();
@@ -64,59 +111,3 @@ if (window != window.top) {
         }
     });
 }
-
-
-/*
-$(document).ready(function() {
-    $('#ChangePwForm').bootstrapValidator({
-        message: 'This value is not valid',
-        feedbackIcons: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-            pw1: {
-                validators: {
-                    notEmpty: {
-                        message: 'Required Field'
-                    }
-                }
-            },
-            pw2: {
-                validators: {
-                    notEmpty: {
-                        message: 'Required Field'
-                    },
-                    stringLength: {
-                     message: 'New password must be at least 8 characters',
-                     min: 8
-                 }
-             }
-         },
-         pw3: {
-            validators: {
-                notEmpty: {
-                    message: 'Required Field'
-                },
-                identical: {
-                    field: 'pw2',
-                    message: 'The passwords do not match'
-                }
-            }
-        }
-    }
-})
-.on('success.form.bv', function(e) {
-  e.preventDefault();
-  oh.user.password($("#username").text(), $("#pw1").val(), $("#username").text(), $("#pw2").val(), function(res){
-     alert("Successfully changed password!");
-     $("#ChangePwCollapse").collapse('hide');
-     $("#pw1").val('');
-     $("#pw2").val('');
-     $("#pw3").val('');
-     $(".modal .btn").removeAttr("disabled");
- });
-});
-});
-*/
