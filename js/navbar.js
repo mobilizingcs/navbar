@@ -26,8 +26,9 @@ if (window != window.top) {
         //steven's hacky nginx redirects
         var shortcut = window.location.search.replace(/^[?]/, "")
         if(shortcut){
+            console.log("Redirecting iframe to /navbar/" + shortcut)
             iframe.attr("src", "/navbar/" + shortcut);
-             window.location.search = "";
+            window.location.search = "";
         }
 
         //watch iframe changes
