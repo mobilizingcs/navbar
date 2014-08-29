@@ -19,7 +19,7 @@ if (window != window.top) {
         $("#logoutlink").click(function(e){
             e.preventDefault();
             if(localStorage["survey-responses"]){
-                if( window.confirm("Logging out will delete existing survey responeses. Do you want to continue?") ){
+                if( window.confirm("Logging out will delete existing survey responses you have in your upload queue. Do you want to continue?") ){
                     delete localStorage["survey-responses"];
                 } else {
                     return;
