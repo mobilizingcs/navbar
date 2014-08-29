@@ -18,6 +18,13 @@ if (window != window.top) {
         //logout link
         $("#logoutlink").click(function(e){
             e.preventDefault();
+            if(localStorage["survey-responses"]){
+                if( window.confirm("Logging out will delete existing survey responeses. Do you want to continue?") ){
+                    delete localStorage["survey-responses"];
+                } else {
+                    return;
+                }
+            }
             oh.logout().always(function(){
                 window.location.reload();
             })
