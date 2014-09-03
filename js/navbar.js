@@ -3,7 +3,7 @@ if (window != window.top) {
     window.location.replace("home.html");
 } else if(window.location.search.replace(/^[?]/, "")) {
     //steven's hacky nginx redirects
-    window.location.hash = "/navbar/" + window.location.search.replace(/^[?]/, "");
+    window.location.hash = window.location.search.replace(/^[?]/, "");
     window.location.search = ""; //this triggers a page refresh
 } else {
     //load the actual page
@@ -36,13 +36,13 @@ if (window != window.top) {
 
         var state = window.location.hash.replace(/^#/,"")
         if(state) {
-            iframe.attr("src", state)
+            iframe.attr("src", state.replace("/navbar/"+ state))
         }
 
         //watch iframe changes
         iframe.on("load", function(){
             //update the browser address bar
-            location.hash = iframe[0].contentWindow.location.pathname
+            location.hash = iframe[0].contentWindow.location.pathname.replace(/^\/?navbar\//,"")
 
             //check if user has logged in or out
             updateUserInfo();
