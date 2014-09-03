@@ -36,7 +36,7 @@ if (window != window.top) {
 
         var state = window.location.hash.replace(/^#/,"")
         if(state) {
-            iframe.attr("src", state.replace("/navbar/"+ state))
+            iframe.attr("src", "/navbar/" + state)
         }
 
         //watch iframe changes
