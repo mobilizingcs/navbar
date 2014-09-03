@@ -1,6 +1,10 @@
 if (window != window.top) {
     //escape from iframe in iframe
     window.location.replace("home.html");
+} else if(window.location.search.replace(/^[?]/, "")) {
+    //steven's hacky nginx redirects
+    window.location.hash = "/navbar/" + window.location.search.replace(/^[?]/, "");
+    window.location.search = ""; //this triggers a page refresh
 } else {
     //load the actual page
     $(function(){
@@ -30,18 +34,15 @@ if (window != window.top) {
             })
         });
 
-        //steven's hacky nginx redirects
-        var shortcut = window.location.search.replace(/^[?]/, "")
-        if(shortcut){
-            iframe.attr("src", "/navbar/" + shortcut)
-            //changing search will reload the page
-            //window.location.search = "";
+        var state = window.location.hash.replace(/^#/,"")
+        if(state) {
+            iframe.attr("src", state)
         }
 
         //watch iframe changes
         iframe.on("load", function(){
             //update the browser address bar
-            location.hash = btoa(iframe[0].contentWindow.location.href);
+            location.hash = iframe[0].contentWindow.location.pathname
 
             //check if user has logged in or out
             updateUserInfo();
