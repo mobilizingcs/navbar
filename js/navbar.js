@@ -36,13 +36,15 @@ if (window != window.top) {
 
         var state = window.location.hash.replace(/^#/,"")
         var homepath = $("<a>").attr("href", iframe.attr("src"))[0].pathname;
-        if(state && (state != homepath)) {
+        if(state) {
+            //always map #foo to #/navbar/foo
             iframe.attr("src", "/navbar/" + state)
         }
 
         //watch iframe changes
         iframe.on("load", function(){
             //update the browser address bar
+            //map /navbar/foo back to #foo
             var newloc = iframe[0].contentWindow.location.pathname.replace(/^\/?navbar\//,"");
             if(newloc == homepath){
                 location.hash = "";
