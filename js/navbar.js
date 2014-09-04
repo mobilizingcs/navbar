@@ -35,7 +35,7 @@ if (window != window.top) {
         });
 
         var state = window.location.hash.replace(/^#/,"")
-        if(state) {
+        if(state && (state != iframe[0].contentWindow.location.pathname)) {
             iframe.attr("src", "/navbar/" + state)
         }
 
