@@ -36,6 +36,7 @@ if (window != window.top) {
 
         var state = window.location.hash.replace(/^#/,"")
         if(state && (state != iframe[0].contentWindow.location.pathname)) {
+            console.log("moving iframe from\n" + iframe[0].contentWindow.location.pathname + "\nto\n" + state)
             iframe.attr("src", "/navbar/" + state)
         }
 
