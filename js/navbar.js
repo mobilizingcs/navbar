@@ -12,12 +12,16 @@ if (window != window.top) {
         //initiate the client
         var oh = Ohmage("/app", "mobilize-navbar");
         var iframe = $("#meta_iframe");
+        var homepath = $("<a>").attr("href", iframe.attr("src"))[0].pathname;
 
         //hide on page load
         $("#username-li").hide();
         $("#logoutlink").hide();
         $("#login-li").hide();
         $("#help").hide();
+
+        //move iframe to hash
+        moveIframe();
 
         //logout link
         $("#logoutlink").click(function(e){
@@ -34,11 +38,13 @@ if (window != window.top) {
             })
         });
 
-        var state = window.location.hash.replace(/^#/,"")
-        var homepath = $("<a>").attr("href", iframe.attr("src"))[0].pathname;
-        if(state) {
-            //always map #foo to #/navbar/foo
-            iframe.attr("src", "/navbar/" + state)
+        function moveIframe(){
+            var hashval = window.location.hash.replace(/^#/,"");
+            var state = iframe[0].contentWindow.location.pathname.replace(/^\/?navbar\//,"");
+            if(hashval && (state != hashval)) {
+                //always map #foo to #/navbar/foo
+                iframe.attr("src", "/navbar/" + hashval)
+            }
         }
 
         //watch iframe changes
@@ -54,6 +60,11 @@ if (window != window.top) {
 
             //check if user has logged in or out
             updateUserInfo();
+        });
+
+        //catch a back button click
+        $(window).bind("hashchange", function(e) {
+            moveIframe();
         });
 
         //populate navbar with username
