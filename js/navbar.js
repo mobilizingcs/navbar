@@ -29,7 +29,13 @@ if (window != window.top) {
             e.preventDefault();
             if(localStorage["survey-responses"]){
                 if( window.confirm("Logging out will delete existing survey responses you have in your upload queue. Do you want to continue?") ){
+                    //delete mwf data
                     delete localStorage["survey-responses"];
+                    delete localStorage["all-campaigns"];
+                    delete localStorage["campaign-configurations"];
+                    delete localStorage["custom-properties-vault"];
+                    delete localStorage["images"];
+                    delete localStorage["installed-campaigns"];
                 } else {
                     return;
                 }
