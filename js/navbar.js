@@ -37,7 +37,6 @@ if (window != window.top) {
         var state = window.location.hash.replace(/^#/,"")
         var homepath = $("<a>").attr("href", iframe.attr("src"))[0].pathname;
         if(state && (state != homepath)) {
-            console.log("moving iframe from\n" + iframe[0].contentWindow.location.pathname + "\nto\n" + state)
             iframe.attr("src", "/navbar/" + state)
         }
 
