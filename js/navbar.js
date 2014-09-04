@@ -13,6 +13,7 @@ if (window != window.top) {
         var oh = Ohmage("/app", "mobilize-navbar");
         var iframe = $("#meta_iframe");
         var homepath = $("<a>").attr("href", iframe.attr("src"))[0].pathname;
+        var appdir = "/navbar/"
 
         //hide on page load
         $("#username-li").hide();
@@ -38,13 +39,19 @@ if (window != window.top) {
             })
         });
 
+        function getState(){
+            var pattern = new RegExp("^" + appdir);
+            var state = iframe[0].contentWindow.location.pathname.replace(pattern, "");
+            return state;
+        }
+
         function moveIframe(){
             var hashval = window.location.hash.replace(/^#/,"");
-            var state = iframe[0].contentWindow.location.pathname.replace(/^\/?navbar\//,"");
+            var state = getState();
             if(state != hashval) {
                 if(hashval){
                     //always map #foo to #/navbar/foo
-                    iframe.attr("src", "/navbar/" + hashval)
+                    iframe.attr("src", appdir + hashval)
                 } else {
                     iframe.attr("src", homepath)
                 }
@@ -56,7 +63,7 @@ if (window != window.top) {
         iframe.on("load", function(){
             //update the browser address bar
             //map /navbar/foo back to #foo
-            var state = iframe[0].contentWindow.location.pathname.replace(/^\/?navbar\//,"");
+            var state = getState();
             if(state == homepath){
                 location.hash = "";
             } else {
