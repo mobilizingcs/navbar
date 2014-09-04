@@ -69,6 +69,7 @@ if (window != window.top) {
 
         //catch a back button click
         $(window).bind("hashchange", function(e) {
+            console.log("External hashchange event!")
             moveIframe();
         });
 
