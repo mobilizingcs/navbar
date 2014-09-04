@@ -38,13 +38,10 @@ if (window != window.top) {
             })
         });
 
-        function moveIframe(msg){
+        function moveIframe(){
             var hashval = window.location.hash.replace(/^#/,"");
             var state = iframe[0].contentWindow.location.pathname.replace(/^\/?navbar\//,"");
             if(state != hashval) {
-                if(msg){
-                    console.log("External hashchange event!")
-                }
                 if(hashval){
                     //always map #foo to #/navbar/foo
                     iframe.attr("src", "/navbar/" + hashval)
@@ -72,7 +69,7 @@ if (window != window.top) {
 
         //catch a back button click
         $(window).bind("hashchange", function(e) {
-            moveIframe(true);
+            moveIframe();
         });
 
         //populate navbar with username
