@@ -43,7 +43,12 @@ if (window != window.top) {
         //watch iframe changes
         iframe.on("load", function(){
             //update the browser address bar
-            location.hash = iframe[0].contentWindow.location.pathname.replace(/^\/?navbar\//,"")
+            var newloc = iframe[0].contentWindow.location.pathname.replace(/^\/?navbar\//,"");
+            if(newloc == homepath){
+                location.hash = "";
+            } else {
+                location.hash = newloc;
+            }
 
             //check if user has logged in or out
             updateUserInfo();
