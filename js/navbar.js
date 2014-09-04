@@ -53,7 +53,7 @@ if (window != window.top) {
                     //always map #foo to #/navbar/foo
                     iframe.attr("src", appdir + hashval)
                 } else {
-                    iframe.attr("src", homepath)
+                    if(state != homepath) iframe.attr("src", homepath);
                 }
 
             }
