@@ -1,6 +1,7 @@
 if (window != window.top) {
     //escape from iframe in iframe
-    window.location.replace("home.html");
+    var hash = window.location.hash.replace(/^#/,"");
+    window.location.replace(hash || "home.html");
 } else if(window.location.search.replace(/^[?]/, "")) {
     //steven's hacky nginx redirects
     window.location.hash = window.location.search.replace(/^[?]/, "");
