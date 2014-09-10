@@ -31,7 +31,9 @@
             //logout link
             $("#logoutlink").click(function(e){
                 e.preventDefault();
-                if(localStorage["survey-responses"]){
+                //this is string, check if it exists
+                var sr = localStorage["survey-responses"];
+                if(sr && sr != "{}"){
                     if( window.confirm("Logging out will delete existing survey responses you have in your upload queue. Do you want to continue?") ){
                         //delete mwf data
                         delete localStorage["survey-responses"];
