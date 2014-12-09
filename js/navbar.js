@@ -25,8 +25,22 @@
             $("#login-li").hide();
             $("#help").hide();
 
-            //move iframe to hash
-            moveIframe();
+            //special case for the registration email link hash
+            var regex = /registration_id=([0-9a-fA-F]+)/;
+            if (regex.test(window.location.hash)) {
+                var registration_id  = window.location.hash.match(regex)[1];
+                console.log("Found activation ID: " + registration_id)
+                oh.user.activate({
+                    registration_id : registration_id
+                }).done(function(){
+                    alert("User activated!")
+                }).error(function(msg){
+                    alert("Activation failed! " + msg)
+                });
+            } else {
+                //move iframe to hash
+                moveIframe();
+            }
 
             //logout link
             $("#logoutlink").click(function(e){

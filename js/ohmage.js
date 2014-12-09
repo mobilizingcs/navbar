@@ -190,6 +190,9 @@ function Ohmage(app, client){
 		return oh.call("/user/change_password", data)
 	}
 
+	oh.user.activate = function(data){
+		return oh.call("/user/activate", data)
+	}
 
 	//@args class_urn_list
 	oh.class.read = function(data){
