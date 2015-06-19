@@ -77,7 +77,7 @@
                 if(state != hashval) {
                     if(hashval){
                         //always map #foo to #/navbar/foo
-                        iframe.attr("src", appdir + hashval)
+                        iframe.attr("src", appdir + decodeURIComponent(hashval))
                     } else {
                         if(state != homepath) iframe.attr("src", homepath);
                     }
