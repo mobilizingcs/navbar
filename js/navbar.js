@@ -67,8 +67,9 @@
 
             function getState(){
                 var pattern = new RegExp("^" + appdir);
-                var state = iframe[0].contentWindow.location.pathname.replace(pattern, "");
-                return state;
+                var path = iframe[0].contentWindow.location.pathname.replace(pattern, "");
+                var state = iframe[0].contentWindow.location.hash
+                return state ? (path + "#" + state) : path;
             }
 
             function moveIframe(){
