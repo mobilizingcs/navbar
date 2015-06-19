@@ -72,12 +72,12 @@
             }
 
             function moveIframe(){
-                var hashval = window.location.hash.replace(/^#/,"");
+                var hashval = decodeURIComponent(window.location.hash.replace(/^#/,""));
                 var state = getState();
                 if(state != hashval) {
                     if(hashval){
                         //always map #foo to #/navbar/foo
-                        iframe.attr("src", appdir + decodeURIComponent(hashval))
+                        iframe.attr("src", appdir + hashval)
                     } else {
                         if(state != homepath) iframe.attr("src", homepath);
                     }
@@ -93,7 +93,7 @@
                 if(state == homepath){
                     location.hash = "";
                 } else {
-                    location.hash = state;
+                    location.hash = encodeURIComponent(state);
                 }
 
                 //check if user has logged in or out
