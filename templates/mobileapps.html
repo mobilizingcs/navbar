@@ -1,0 +1,22 @@
+<div class="col-xs-12 col-sm-12">
+  <h2>
+    <img src="<%- logo %>" height="50"> Mobile Apps <small>"<%- app_name %>"</small>
+  </h2>
+  <div class="row" id="mobileapps">
+  <% _.each(apps, function(app){ %>
+    <div class=" col-6 col-sm-6 col-lg-6">
+      <h3 class="text-primary text-center"><%- app.get('title') %></h3>
+      <p class="text-center">
+        <a target="_blank" href="<%- app.get('href') %>">
+          <img src="<%- app.get('img') %>" height="200" alt="<%- app.get('title') %> Screenshot">
+        </a>
+      </p>
+      <% if (app.get('title') == 'Android') { %>
+        <p class="text-center">Download for your android phone or tablet!</p>
+      <% } else { %>
+        <p class="text-center">Download for your iPhone, iPad or iPod touch!</p>
+      <% } %>
+    </div>
+  <% }) %>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+<nav class="navbar navbar-fixed-top navbar-inverse unified" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="<%- icon %>" alt="Mobilize" height="30px"></a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav">
+        <% _.each(navs, function(nav){ %>
+          <% if (nav.get('dropdown') == false) { %>
+            <li class="visible-md visible-lg"><a href="<%- nav.get('href') %>" <%- nav.get('noreferrer') ? 'rel="noreferrer' : '' %>><%- nav.get('name') %></a></li>
+            <li class="visible-xs visible-sm"><a href="<%- nav.get('href') %>" <%- nav.get('noreferrer') ? 'rel="noreferrer' : '' %>><%- nav.get('short_name') %></a></li>
+          <% } else { %>
+            <li class="dropdown visible-md visible-lg">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%- nav.get('name') %> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <% _.each(nav.get('navs'), function(dd_nav){ %>
+                  <li><a href="<%- dd_nav.href %>"><%- dd_nav.name %></a></li>
+                <% }) %>
+              </ul>
+            </li>
+            <li class="dropdown visible-xs visible-sm">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%- nav.get('short_name') %> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <% _.each(nav.get('navs'), function(dd_nav){ %>
+                  <li><a href="<%- dd_nav.href %>"><%- dd_nav.name %></a></li>
+                <% }) %>
+              </ul>
+            </li>
+          <% } %>
+        <% }) %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li id="help" class="dropdown"><a href="#" data-toggle="dropdown">Help</a>
+          <ul class="dropdown-menu">
+            <li><a target="_blank" href="<%- wiki.get('href') %>">Wiki</a></li>
+            <li><a data-toggle="modal" data-target="#contact-modal">Contact</a></li>
+          </ul>
+        </li>
+        <li id="login-li"><a id="navbar-login" href="#login">Log in</a></li>
+        <li id="username-li">
+          <a data-toggle="modal" data-target="#user-modal" href="#user-modal"><span class="glyphicon glyphicon-user"></span> <span id="nav-username">username</span></a>
+        </li>
+        <li id="logoutlink"><a href="#" title="Log out"><span class="glyphicon glyphicon-log-out"></span></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- contact modal on navbar -->
+<div class="modal fade" id="contact-modal" tabIndex="-1" role="dialog" aria-labelledby="contact-modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Contact Us</h4>
+      </div>
+      <div class="modal-body">
+        <h4>
+          <dl class="dl-horizontal">
+            <dt>E-mail address</dt>
+            <dd><a target="_blank" href="mailto:<%- contact.email %>"><%- contact.email %></a></dd>
+            <% if (contact.voice) { %>
+              <dt>Text/Voicemail</dt>
+              <dd><a target="_blank" href="tel:<%- contact.voice.replace(/\D/g,'') %>"><%- contact.voice %></a></dd>
+            <% } %>
+          </dl>
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>

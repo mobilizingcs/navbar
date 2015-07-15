@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+    <div class="row text-center">
+      <img class="pull-center" src="assets/ohmage-logo-full.png"></img>
+    </div>
+    <div class="row" id="login">
+<div class="panel panel-login" id="register-panel">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-xs-12">
+        <a href="#" class="active">Create Account</a>
+      </div>
+    </div>
+    <hr>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-12 errordiv" style="display:none;">
+        <div class="alert">
+          <a href="#" class="close" data-dismiss="alert">&times;</a>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+				<form id="register-form" role="form">
+					<div class="form-group">
+						<input type="text" name="register_username" id="register_username" tabindex="1" class="form-control" placeholder="Username" value="">
+					</div>
+					<div class="form-group">
+						<input type="email" name="register_email" id="register_email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+					</div>
+					<div class="form-group">
+						<input type="password" name="register_password" id="register_password" tabindex="2" class="form-control" placeholder="Password">
+					</div>
+					<div class="form-group">
+						<input type="password" name="register_password_confirm" id="register_password_confirm" tabindex="2" class="form-control" placeholder="Confirm Password">
+					</div>
+					<div class="form-group">
+					  <div class="well pre-scrollable" id="tos-div">
+              <span id="tos"><%= tos %></span>
+            </div>
+					</div>
+          <div class="form-group text-center">
+            <input type="checkbox" tabindex="3" class="" name="register_tos_agree" id="tos-agree">
+              <label for="tos-agree"> I agree to the terms above.</label>
+              <div id="tos-agree-error"></div>
+          </div>
+					<div class="form-group">
+					  <div class="g-recaptcha col-md-offset-2 col-lg-offset-3" id='recaptcha'></div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-6 col-sm-offset-3">
+								<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+							</div>
+						</div>
+					</div>
+				</form>
+      </div>
+      <div class="col-lg-12" id="extra-back-to-login">
+        <div class="text-center">
+          <a href="#login" tabindex="5" class="forgot-password login-nav">Back to Login</a>
+        </div>
+      </div>
+		</div>
+	</div>
+</div>
+</div>
+  </div>
+</div>
