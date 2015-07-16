@@ -36,6 +36,13 @@ define([
       $("#username-li").show()
       $("#nav-username").text(username);
       $("#logoutlink").show();
+      oh.user.read({user_list : username}).done(function(r){
+        r[username]['permissions']['admin'] ? $("#admin-link").show() : $("#admin-link").hide();
+        //$("#user-modal-firstname").text(r[name]["first_name"] || "unknown");
+        //$("#user-modal-lastname").text(r[name]["last_name"] || "unknown");
+        //$("#user-modal-org").text(r[name]["organization"] || "unknown");
+        //$("#user-modal-email").text(r[name]["email_address"] || "unknown");
+      });
     }
   });
 
