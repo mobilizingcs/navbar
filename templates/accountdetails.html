@@ -1,0 +1,26 @@
+<div class="modal fade" id="user-modal" tabIndex="-1" role="dialog" aria-labelledby="user-modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="user-modal-username"><%- username %></h4>
+      </div>
+      <div class="modal-body">
+        <% if (user.personal) { %>
+        <dl class="dl-horizontal">
+          <dt>First Name</dt>
+          <dd><%- user.personal.first_name %></dd>
+          <dt>Last Name</dt>
+          <dd><%- user.personal.last_name %></dd>
+          <dt>Organization</dt>
+          <dd><%- user.personal.organization %></dd>
+          <dt>E-mail</dt>
+          <dd><%- user.personal.email_address %></dd>
+        </dl>
+        <% } else { %>
+        <p> No personal information </p>
+        <% } %>
+      </div> <!--modal-body-->
+    </div>
+  </div>
+</div>
