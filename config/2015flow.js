@@ -13,7 +13,7 @@ define([
   config.app_name = 'ohmage/ohmageX'
   config.contact = {'email': "support@ohmage.org", 'voice':'(818) 555-5555'}
   config.tools = new webToolsCollection();
-  config.tools.add({"title":"Survey Taking", "href": "/navbar/survey", "img": "assets/survey.png", "description_html":"Browser-based survey taking"})
+  config.tools.add({"title":"Survey Taking", "href": "#survey", "img": "assets/survey.png", "description_html":"Browser-based survey taking"})
   config.tools.add({"title":"Authoring Tool",  "href": "#campaign_mgmt/#edit",  "img": "assets/authoring.png",  "description_html":"Interactive campaign creation"})
   config.tools.add({"title":"Dashboard",  "href": "#campaign_mgmt/#visualize",  "img": "assets/dashboard.png",  "description_html":"Interactive data exploration. Also available: <a target='_blank' href='/publicdashboard'>Public board</a>"})
   config.tools.add({"title":"Plot App",  "href": "#campaign_mgmt/#plot", "img": "assets/plotapp.png",  "description_html":"R-based data exploration"})

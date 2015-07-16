@@ -5,7 +5,7 @@ define([
   'bootstrap',
   'vent',
   'oh',
-  'config/ohmage',
+  'config/2015flow',
   'lib/text!templates/navbar.html'
 ], function($, _, Backbone, bootstrap, vent, oh, ohmage, navbarTemplate){
   var navbarView = Backbone.View.extend({
