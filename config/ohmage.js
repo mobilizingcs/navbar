@@ -27,7 +27,7 @@ define([
   config.navs = new navsCollection();
   config.navs.add({"name":"Web Frontend", "short_name":"Frontend", "href":"#web", "noreferrer":true})
   config.navs.add({"name":"Survey Taking", "short_name":"Survey", "href":"#survey"})
-  config.navs.add({"name":"Data Exploration", "short_name":"Data Exp", "href": "#", "dropdown": true, "navs": [{"name": "Campaign Monitoring", "href": "#monitor"}, {"name": "Interactive Dashboard", "href":"#dashboard"}, {"name": "Plot App", "href":"#plotapp"}]})
+  config.navs.add({"name":"Data Exploration", "short_name":"Data Exp", "href": "#", "dropdown": true, "navs": [{"name": "Campaign Monitoring", "href": "#monitor"}, {"name": "Interactive Dashboard", "href":"#campaign_mgmt/#visualize"}, {"name": "Plot App", "href":"#plotapp"}]})
   config.navs.add({"name":"Documents", "short_name":"Docs", "href":"#document"})
   config.navs.add({"name":"Campaign Mgmt (beta)", "short_name":"Campaigns (beta)", "href":"#campaign_mgmt"})
   return config;
