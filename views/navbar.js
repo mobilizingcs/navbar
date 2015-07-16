@@ -42,10 +42,6 @@ define([
         var user_details = r[username];
         user_details['permissions']['admin'] ? $("#admin-link").show() : $("#admin-link").hide();
         that.accountDetails(username, user_details);
-        //$("#user-modal-firstname").text(r[name]["first_name"] || "unknown");
-        //$("#user-modal-lastname").text(r[name]["last_name"] || "unknown");
-        //$("#user-modal-org").text(r[name]["organization"] || "unknown");
-        //$("#user-modal-email").text(r[name]["email_address"] || "unknown");
       });
     },
     accountDetails: function(username, details){
