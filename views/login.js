@@ -38,6 +38,7 @@ define([
           var returnTo = document.referrer.replace(/^[^:]+:\/\/[^/]+/, '').replace(/#.*/, '').replace(/\?.*/, '');
           window.location.replace(returnTo);
         }
+        vent.trigger('route', '')
       })
     },
     undelegate: function(){
