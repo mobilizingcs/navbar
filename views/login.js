@@ -33,12 +33,11 @@ define([
         vent.trigger('ohmage:success:auth', $("#username").val());
         if (document.referrer.split('/')[2] != location.host) { //redirect to home if referrer is unknown.
           console.log("Referrer appears to be a different host or undefined, ignoring.");
-          window.location.replace('/');
+           window.self == window.top ? vent.trigger('route', '') : window.location.replace('/');
         } else { //back to app you came from!
           var returnTo = document.referrer.replace(/^[^:]+:\/\/[^/]+/, '').replace(/#.*/, '').replace(/\?.*/, '');
           window.location.replace(returnTo);
         }
-        vent.trigger('route', '')
       })
     },
     undelegate: function(){

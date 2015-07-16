@@ -26,7 +26,7 @@ require.config({
 });
 
 require([
-  'zapp'
+  'app'
 ], function(App){
   App.initialize();
 });
