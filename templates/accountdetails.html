@@ -6,16 +6,17 @@
         <h4 class="modal-title" id="user-modal-username"><%- username %></h4>
       </div>
       <div class="modal-body">
-        <% if (user.personal) { %>
+      <% console.log(user) %>
+        <% if (user.first_name) { %>
         <dl class="dl-horizontal">
           <dt>First Name</dt>
-          <dd><%- user.personal.first_name %></dd>
+          <dd><%- user.first_name %></dd>
           <dt>Last Name</dt>
-          <dd><%- user.personal.last_name %></dd>
+          <dd><%- user.last_name %></dd>
           <dt>Organization</dt>
-          <dd><%- user.personal.organization %></dd>
+          <dd><%- user.organization %></dd>
           <dt>E-mail</dt>
-          <dd><%- user.personal.email_address %></dd>
+          <dd><%- user.email_address %></dd>
         </dl>
         <% } else { %>
         <p> No personal information </p>
