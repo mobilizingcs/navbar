@@ -12,6 +12,9 @@ define([
   var loginView = Backbone.View.extend({
     el: $("#login"),
     initialize: function(){
+      oh.user.whoami().done(function(username){
+        vent.trigger('ohmage:success:auth', username);
+      });
       vent.trigger('snuff:recover')
       vent.trigger('snuff:register')
       var template = _.template(loginTemplate);
@@ -22,10 +25,15 @@ define([
       vent.on("ohmage:error:new_account", this.forcePasswordChange, this);
       vent.on("updated:password", this.login, this)
       vent.on("ohmage:error", this.message, this)
+      vent.on('ohmage:success:auth', this.logged_in, this);
     },
     events: {
       "submit #login-form": "login",
       "submit #force-reset-form": "changePassword"
+    },
+    logged_in: function(){
+      console.log("login: you're logged in, why did you come here?");
+      vent.trigger('route', '')
     },
     login: function(e){
       e.preventDefault();
