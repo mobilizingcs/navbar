@@ -7,9 +7,10 @@ define([
   'oh',
   'config/ohmage',
   'lib/text!templates/register.html',
+  'lib/text!templates/message.html',
   'recaptchav1',
   'lib/async!//www.google.com/recaptcha/api.js?render=explicit!onload'
-], function($, _, Backbone, validate, vent, oh, ohmage, registerTemplate){
+], function($, _, Backbone, validate, vent, oh, ohmage, registerTemplate, messageTemplate){
   var registerView = Backbone.View.extend({
     el: $("#login"),
     initialize: function(){      
@@ -32,9 +33,9 @@ define([
         });
       });
       $("#register_username").focus();
-      vent.on('register:success', this.submitted);
+      vent.on('register:success', this.submitted, this);
       vent.on('snuff:register', this.undelegate, this)
-      vent.on('ohmage:error', this.errordiv);
+      vent.on('ohmage:error', this.message);
     },
     events: {
       'submit form': 'register'
@@ -80,19 +81,16 @@ define([
         });
       }
     },
-    errordiv: function(msg){
-      $(".errordiv").fadeIn(100)
-        .children().addClass('alert-danger').removeClass('alert-success')
-        .find('span').text(msg);
+    message: function(msg, status){
+      var template = _.template(messageTemplate);
+      $('.errordiv').html(template({status: status, msg: msg})).fadeIn(100);
       $('html, body').animate({
         scrollTop: $("#register-panel").offset().top
       });
     },
     submitted: function(){
       $("#register-form").hide();
-      $(".errordiv").fadeIn(100)
-        .children().addClass('alert-success').removeClass('alert-danger')
-        .find('span').text('Thanks for registering! Check your email for an activation link!');
+      this.message("Thanks for registering! Check your email for an activation link!", 'success')
     },
     undelegate: function(){
       this.undelegateEvents();
@@ -129,14 +127,6 @@ define([
         },
         messages: {
           register_tos_agree: "You must agree to our terms of service."
-        },
-        showErrors: function(errorMap, errorList) {
-          if (registerFormValidator.numberOfInvalids() == 0 ) {
-            //$(".errordiv").empty();
-          } else {
-            //message("This form has errors! See below.");
-          }
-          this.defaultShowErrors();
         },
         errorClass: "has-error",
         validClass: "has-success",

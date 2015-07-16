@@ -13,11 +13,12 @@ define([
   
   //global error callback
   oh.callback("error", function(msg, code, req){
-    if (msg.match("token") || msg.match('Authentication credentials were not provided') || msg.match("New accounts aren't allowed to use this service")) {
-      vent.trigger("ohmage:error:auth", msg);
-      //vent.trigger("route", "login");
+    if (msg.match("token") || msg.match('Authentication credentials were not provided')){
+      vent.trigger("ohmage:error:auth", msg, 'danger');
+    } else if (msg.match("New accounts aren't allowed to use this service")) {
+      vent.trigger("ohmage:error:new_account");
     } else {
-      vent.trigger("ohmage:error", msg)
+      vent.trigger("ohmage:error", msg, 'danger')
     }
   });
   return oh;

@@ -7,10 +7,6 @@ define([
   'oh'
 ], function($, _, Backbone, Router, vent, oh){
   var initialize = function(){
-    //vent.on('ohmage:callback', function(x){
-    //  console.log('ohmage event triggered: '+x);
-    //})
-
     vent.on('ohmage:error:auth', function(msg){
       console.log("error from ohmage: "+msg)
     })

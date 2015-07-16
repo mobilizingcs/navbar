@@ -9,14 +9,16 @@ define([
   'views/navbar',
   'views/login',
   'views/recover',
-  'views/register'
-], function($, _, Backbone, vent, webToolsView, mobileAppsView, footerView, navbarView, loginView, recoverView, registerView){
+  'views/register',
+  'views/activation'
+], function($, _, Backbone, vent, webToolsView, mobileAppsView, footerView, navbarView, loginView, recoverView, registerView, activationView){
   var AppRouter = Backbone.Router.extend({
     routes: {
       '': 'index',
       'login': 'login',
       'recover': 'recover',
       'register': 'register',
+      'activate?registration_id=:id': 'index',
       '*page' : 'pages'
     }
   });
@@ -38,9 +40,13 @@ define([
       navbarview.render();
     } 
 
-    app_router.on('route:index', function(){
+    app_router.on('route:index', function(id){
       $(".display").hide();
       $("#landing").show();
+      if (id) {
+        var activationview = new activationView(id);
+        app_router.navigate('');
+      }
       var webtoolsView = new webToolsView();
       webtoolsView.render();
       var mobileappsView = new mobileAppsView();
@@ -76,6 +82,7 @@ define([
       $("#iframe").show();
       iframe.attr("src", '/navbar/' + page);
     })
+
     var iframe = $("#meta_iframe")
     iframe.on("load", function(){
       updateState();
