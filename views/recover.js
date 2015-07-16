@@ -5,9 +5,8 @@ define([
   'jquery.validate',
   'vent',
   'oh',
-  'config/ohmage',
   'lib/text!templates/recover.html'
-], function($, _, Backbone, validate, vent, oh, ohmage, recoverTemplate){
+], function($, _, Backbone, validate, vent, oh, recoverTemplate){
   var recoverView = Backbone.View.extend({
     el: $("#login"),
     initialize: function(){

@@ -5,10 +5,9 @@ define([
   'vent',
   'oh',
   'jquery.validate',
-  'config/ohmage',
   'lib/text!templates/login.html',
   'lib/text!templates/message.html'
-], function($, _, Backbone, vent, oh, validate, ohmage, loginTemplate, messageTemplate){
+], function($, _, Backbone, vent, oh, validate, loginTemplate, messageTemplate){
   var loginView = Backbone.View.extend({
     el: $("#login"),
     initialize: function(){

@@ -3,7 +3,7 @@ define([
   'underscore',
   'backbone',
   'collections/mobileapps',
-  'config/ohmage',
+  'config/2015flow',
   'lib/text!templates/mobileapps.html'
 ], function($, _, Backbone, mobileAppsCollection, ohmage, mobileAppsTemplate){
   var mobileAppsView = Backbone.View.extend({

@@ -3,7 +3,7 @@ define([
   'underscore',
   'backbone',
   'collections/webtools',
-  'config/ohmage',
+  'config/2015flow',
   'lib/text!templates/webtools.html'
 ], function($, _, Backbone, webToolsCollection, ohmage, webToolsTemplate){
   var webToolsView = Backbone.View.extend({

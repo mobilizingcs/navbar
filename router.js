@@ -78,6 +78,7 @@ define([
     })
   
     app_router.on('route:pages', function(page){
+      console.log('pages route: '+page)
       $(".display").hide();
       $("#iframe").show();
       iframe.attr("src", '/navbar/' + page);

@@ -2,7 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'config/ohmage',
+  'config/2015flow',
   'lib/text!templates/footer.html'
 ], function($, _, Backbone, ohmage, footerTemplate){
   var footerView = Backbone.View.extend({
