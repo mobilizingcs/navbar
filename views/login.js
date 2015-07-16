@@ -12,16 +12,20 @@ define([
   var loginView = Backbone.View.extend({
     el: $("#login"),
     initialize: function(){
+      vent.trigger('snuff:recover')
+      vent.trigger('snuff:register')
       oh.user.whoami().done(function(username){
         vent.trigger('ohmage:success:auth', username);
       });
-      vent.trigger('snuff:recover')
-      vent.trigger('snuff:register')
-      var template = _.template(loginTemplate);
-      this.$el.html(template({foo: 'bar'}));
+      var that = this;
+      oh.config.read().done(function(data){
+        var template = _.template(loginTemplate);
+        that.$el.html(template({registration: data.self_registration_allowed}));
+        $("#login-form").validate();
+        $("#username").focus();
+      });
+
       vent.on('snuff:login', this.undelegate, this);
-      $("#login-form").validate();
-      $("#username").focus();
       vent.on("ohmage:error:new_account", this.forcePasswordChange, this);
       vent.on("updated:password", this.login, this)
       vent.on("ohmage:error", this.message, this)

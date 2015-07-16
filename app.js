@@ -12,7 +12,6 @@ define([
     })
 
     Router.initialize();
-    //this.oh = oh;
     oh.user.whoami().done(function(username){
       vent.trigger('ohmage:success:auth', username);
     });
