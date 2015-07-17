@@ -4,7 +4,7 @@ define([
   'backbone',
   'vent',
   'oh',
-  'lib/text!templates/message.html'
+  'text!templates/message.html'
 ], function($, _, Backbone, vent, oh, messageTemplate){
   //a quasi view to keep activation out of the router
   var activationView = Backbone.View.extend({

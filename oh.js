@@ -9,6 +9,7 @@ define([
   //attach global callbacks
   oh.callback("done", function(x, status, req){
   	vent.trigger("ohmage:callback", x)
+    console.log('ohmage api')
   });
   
   //global error callback

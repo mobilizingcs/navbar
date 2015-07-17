@@ -6,7 +6,6 @@
         <h4 class="modal-title" id="user-modal-username"><%- username %></h4>
       </div>
       <div class="modal-body">
-      <% console.log(user) %>
         <% if (user.first_name) { %>
         <dl class="dl-horizontal">
           <dt>First Name</dt>
@@ -15,6 +14,8 @@
           <dd><%- user.last_name %></dd>
           <dt>Organization</dt>
           <dd><%- user.organization %></dd>
+          <dt>Personal ID</dt>
+          <dd><%- user.personal_id %></dd>
           <dt>E-mail</dt>
           <dd><%- user.email_address %></dd>
         </dl>

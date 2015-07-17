@@ -3,14 +3,14 @@ define([
   'underscore',
   'backbone',
   'collections/mobileapps',
-  'config/2015flow',
-  'lib/text!templates/mobileapps.html'
-], function($, _, Backbone, mobileAppsCollection, ohmage, mobileAppsTemplate){
+  'config',
+  'text!templates/mobileapps.html'
+], function($, _, Backbone, mobileAppsCollection, config, mobileAppsTemplate){
   var mobileAppsView = Backbone.View.extend({
     el: $("#mobileapps"),
     initialize: function(){
       var template = _.template( mobileAppsTemplate);
-      this.$el.html(template({ apps: ohmage.apps.models, logo: ohmage.logo, app_name: ohmage.app_name }));
+      this.$el.html(template({ apps: config.apps.models, logo: config.logo, app_name: config.app_name }));
     }
   });
   return mobileAppsView;

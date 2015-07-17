@@ -5,8 +5,8 @@ define([
   'vent',
   'oh',
   'jquery.validate',
-  'lib/text!templates/login.html',
-  'lib/text!templates/message.html'
+  'text!templates/login.html',
+  'text!templates/message.html'
 ], function($, _, Backbone, vent, oh, validate, loginTemplate, messageTemplate){
   var loginView = Backbone.View.extend({
     el: $("#login"),
@@ -56,7 +56,6 @@ define([
       })
     },
     forcePasswordChange: function(){
-      //$("#login-form").data('validator', null);
       $("#force-reset-modal").modal("show");
       $("#force-reset-username").val($("#username").val());
       $("#force-reset-current-password").val($("#password").val());

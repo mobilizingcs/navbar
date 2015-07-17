@@ -2,14 +2,14 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'config/2015flow',
-  'lib/text!templates/footer.html'
-], function($, _, Backbone, ohmage, footerTemplate){
+  'config',
+  'text!templates/footer.html'
+], function($, _, Backbone, config, footerTemplate){
   var footerView = Backbone.View.extend({
     el: $("#footer"),
     initialize: function(){
       var template = _.template(footerTemplate);
-      this.$el.html(template({ footer: ohmage.footer }));
+      this.$el.html(template({ footer: config.footer }));
     }
   });
   return footerView;

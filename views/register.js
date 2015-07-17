@@ -5,10 +5,10 @@ define([
   'jquery.validate',
   'vent',
   'oh',
-  'lib/text!templates/register.html',
-  'lib/text!templates/message.html',
+  'text!templates/register.html',
+  'text!templates/message.html',
   'recaptchav1',
-  'lib/async!//www.google.com/recaptcha/api.js?render=explicit!onload'
+  'async!//www.google.com/recaptcha/api.js?render=explicit!onload'
 ], function($, _, Backbone, validate, vent, oh, registerTemplate, messageTemplate){
   var registerView = Backbone.View.extend({
     el: $("#login"),

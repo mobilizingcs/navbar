@@ -6,6 +6,8 @@ require.config({
     bootstrap: "//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min",
     'jquery.cookie': '//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie',
     ohmage: 'lib/ohmage',
+    text: 'lib/text',
+    async: 'lib/async',
     'jquery.validate': '//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min',
     'recaptchav1': "https://www.google.com/recaptcha/api/js/recaptcha_ajax"
   },

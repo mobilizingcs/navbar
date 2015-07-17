@@ -11,7 +11,9 @@
   <% _.each(tools, function(tool, i){ %>
     <div class="col-md-6 col-sm-6 col-lg-4">
       <h3 class="text-primary text-center"><%- tool.get('title') %></h3>
-      <a href="<%- tool.get('href') %>" <%- tool.get('noreferrer') ? 'rel="noreferrer' : '' %>>
+      <a href="<%- tool.get('href') %>" 
+        <%- tool.get('noreferrer') ? 'rel="noreferrer"' : '' %> 
+        <%- tool.get('target-blank') ? 'target="_blank"' : '' %> >
         <img src="<%- tool.get('img') %>" class="img-thumbnail" alt="<%- tool.get('title') %> Screenshot">
       </a>
       <p><%= tool.get('description_html') %></p>

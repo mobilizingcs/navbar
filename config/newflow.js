@@ -11,7 +11,7 @@ define([
   config.logo = 'assets/ohmage-logo-full.png'
   config.icon = 'assets/ohmage-icon.png'
   config.app_name = 'ohmage/ohmageX'
-  config.contact = {'email': "support@ohmage.org", 'voice':'(818) 555-5555'}
+  config.contact = {'email': "support@ohmage.org"} //can contain 'voice':'(555)555-5555'
   config.tools = new webToolsCollection();
   config.tools.add({"title":"Survey Taking", "href": "#survey", "img": "assets/survey.png", "description_html":"Browser-based survey taking"})
   config.tools.add({"title":"Authoring Tool",  "href": "#campaign_mgmt/#edit",  "img": "assets/authoring.png",  "description_html":"Interactive campaign creation"})

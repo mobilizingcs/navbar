@@ -5,15 +5,15 @@ define([
   'bootstrap',
   'vent',
   'oh',
-  'config/2015flow',
-  'lib/text!templates/navbar.html',
-  'lib/text!templates/accountdetails.html'
-], function($, _, Backbone, bootstrap, vent, oh, ohmage, navbarTemplate, accountDetailsTemplate){
+  'config',
+  'text!templates/navbar.html',
+  'text!templates/accountdetails.html'
+], function($, _, Backbone, bootstrap, vent, oh, config, navbarTemplate, accountDetailsTemplate){
   var navbarView = Backbone.View.extend({
     el: $("#navbar"),
     initialize: function(){
       var template = _.template(navbarTemplate);
-      this.$el.html(template({navs: ohmage.navs.models, icon: ohmage.icon, wiki: ohmage.tools.findWhere({"title":"Wiki"}), contact: ohmage.contact}));
+      this.$el.html(template({navs: config.navs.models, icon: config.icon, wiki: config.tools.findWhere({"title":"Wiki"}), contact: config.contact}));
       vent.on('ohmage:success:auth', this.logged_in, this);
       vent.on('ohmage:error:auth', this.logged_out);
     },
