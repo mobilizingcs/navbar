@@ -10,8 +10,9 @@ define([
   'views/login',
   'views/recover',
   'views/register',
-  'views/activation'
-], function($, _, Backbone, vent, webToolsView, mobileAppsView, footerView, navbarView, loginView, recoverView, registerView, activationView){
+  'views/activation',
+  'views/iframe'
+], function($, _, Backbone, vent, webToolsView, mobileAppsView, footerView, navbarView, loginView, recoverView, registerView, activationView, iframeView){
   var AppRouter = Backbone.Router.extend({
     routes: {
       '': 'index',
@@ -81,23 +82,11 @@ define([
       console.log('pages route: '+page)
       $(".display").hide();
       $("#iframe").show();
-      iframe.attr("src", '/navbar/' + page);
+      var iframeview = new iframeView();
+      iframeview.render();
+      vent.trigger('iframe', page)
     })
-
-    var iframe = $("#meta_iframe")
-    iframe.on("load", function(){
-      updateState();
-      //binds to hash change in iframe
-      $(this.contentWindow).on('hashchange', function(){
-        updateState();
-      })
-    });
-    function updateState(){
-      var iframe_href = iframe[0].contentWindow.location;
-      var location = iframe[0].contentWindow.location.href.match(/navbar\/(.*)/)
-      location = '#'+location[1];
-      history.pushState('', '', location);
-    }
+    
     Backbone.history.start();
   };
 

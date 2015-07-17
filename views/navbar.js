@@ -32,17 +32,19 @@ define([
       $("#logoutlink").hide();
       $("#login-li").show();      
     },
-    logged_in: function(username){
+    logged_in: function(){
       var that = this;
       $("#login-li").hide();
       $("#username-li").show()
-      $("#nav-username").text(username);
       $("#logoutlink").show();
-      oh.user.read({user_list : username}).done(function(r){
-        var user_details = r[username];
-        user_details['permissions']['admin'] ? $("#admin-link").show() : $("#admin-link").hide();
-        that.accountDetails(username, user_details);
-      });
+      oh.user.whoami().done(function(username){
+        $("#nav-username").text(username);
+        oh.user.read({user_list : username}).done(function(r){
+          var user_details = r[username];
+          user_details['permissions']['admin'] ? $("#admin-link").show() : $("#admin-link").hide();
+          that.accountDetails(username, user_details);
+        });
+      })
     },
     accountDetails: function(username, details){
       var template = _.template(accountDetailsTemplate);
