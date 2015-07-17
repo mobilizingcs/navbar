@@ -15,7 +15,7 @@ define([
       vent.trigger('snuff:recover')
       vent.trigger('snuff:register')
       oh.user.whoami().done(function(username){
-        vent.trigger('ohmage:success:auth', username);
+        vent.trigger('ohmage:loggedin', username);
       });
       var that = this;
       oh.config.read().done(function(data){
@@ -29,7 +29,7 @@ define([
       vent.on("ohmage:error:new_account", this.forcePasswordChange, this);
       vent.on("updated:password", this.login, this)
       vent.on("ohmage:error", this.message, this)
-      vent.on('ohmage:success:auth', this.logged_in, this);
+      vent.on('ohmage:loggedin', this.logged_in, this);
     },
     events: {
       "submit #login-form": "login",
