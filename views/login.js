@@ -5,9 +5,10 @@ define([
   'vent',
   'oh',
   'jquery.validate',
+  'config',
   'text!templates/login.html',
   'text!templates/message.html'
-], function($, _, Backbone, vent, oh, validate, loginTemplate, messageTemplate){
+], function($, _, Backbone, vent, oh, validate, config, loginTemplate, messageTemplate){
   var loginView = Backbone.View.extend({
     el: $("#login"),
     initialize: function(){
@@ -19,7 +20,7 @@ define([
       var that = this;
       oh.config.read().done(function(data){
         var template = _.template(loginTemplate);
-        that.$el.html(template({registration: data.self_registration_allowed}));
+        that.$el.html(template({registration: data.self_registration_allowed, config: config}));
         $("#login-form").validate();
         $("#username").focus();
       });
