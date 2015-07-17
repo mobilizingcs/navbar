@@ -37,7 +37,8 @@ define([
       console.log('iframe navigating to: '+src)
       this.$el.find('#meta_iframe').attr("src", '/navbar/' + src);
     },
-    updateHash: function(){
+    hashUpdate: function(){
+      var iframe = this.$el.find('#meta_iframe');  
       var iframe_href = iframe[0].contentWindow.location;
       var location = iframe[0].contentWindow.location.href.match(/navbar\/(.*)/)
       location = '#'+location[1];
