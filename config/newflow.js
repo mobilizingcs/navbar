@@ -19,6 +19,7 @@ define([
   config.tools.add({"title":"Dashboard",  "href": "#campaign_mgmt/#visualize",  "img": "assets/dashboard.png",  "description_html":"Interactive data exploration. Also available: <a target='_blank' href='/publicdashboard'>Public board</a>"})
   config.tools.add({"title":"Plot App",  "href": "#campaign_mgmt/#plot", "img": "assets/plotapp.png",  "description_html":"R-based data exploration"})
   config.tools.add({"title":"Campaign Monitor",  "href": "#campaign_mgmt/#monitor", "img": "assets/monitoring.png",  "description_html":"Campaign progress tracking tool"})
+  config.tools.add({"title":"Documents",  "href": "#document",  "img": "assets/document.png",  "description_html":"Manage and upload documents"})
   config.tools.add({"title":"Wiki",  "href": "https://wiki.ohmage.org", "target-blank": true,  "img": "assets/ohmage-wiki.png",  "description_html":"How-to guides, video tutorials, etc."})
   config.apps = new mobileAppsCollection();
   config.apps.add({"title":"Android","img":"assets/ohmageX-android.png","href":"https://play.google.com/store/apps/details?id=org.ohmage.app"})
