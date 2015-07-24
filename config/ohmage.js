@@ -10,6 +10,7 @@ define([
   config.footer = 'Copyright 2015 <a href="http://ohmage.org">ohmage</a>';
   config.logo = 'assets/ohmage-logo-full.png'
   config.icon = 'assets/ohmage-icon.png'
+  config.title = 'ohmage'
   config.app_name = 'ohmage/ohmageX'
   config.contact = {'email': "support@ohmage.org", 'voice':'(818) 555-5555'}
   config.tools = new webToolsCollection();
