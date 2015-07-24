@@ -25,7 +25,7 @@ define([
   config.apps.add({"title":"iOS","img":"assets/ohmageX-ios.jpg","href":"https://itunes.apple.com/us/app/ohmagex/id980069961?mt=8"})
   config.navs = new navsCollection();
   config.navs.add({"name":"Campaigns", "short_name":"Campaigns", "href":"#campaign_mgmt"})
-  config.navs.add({"name":"Surveys", "short_name":"Surveys", "href": "#", "dropdown": true, "navs": [{"name": "Take", "href": "#survey"}, {"name": "Manage", "href":"#campaign_mgmt/#responses"}]})
+  config.navs.add({"name":"Surveys", "short_name":"Surveys", "href": "#", "dropdown": true, "navs": [{"name": "Take", "href": "#survey"}, {"name": "Manage Responses", "href":"#campaign_mgmt/#responses"}]})
   config.navs.add({"name":"Explore", "short_name":"Explore", "href": "#", "dropdown": true, "navs": [{"name": "Campaign Monitoring", "href": "#campaign_mgmt/#monitor"}, {"name": "Interactive Dashboard", "href":"#campaign_mgmt/#visualize"}, {"name": "PlotApp", "href":"#campaign_mgmt/#plot"}]})
   config.navs.add({"name":"Documents", "short_name":"Docs", "href":"#document"})
   return config;
