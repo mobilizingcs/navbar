@@ -15,7 +15,7 @@ define([
     el: $("#navbar"),
     initialize: function(){
       var template = _.template(navbarTemplate);
-      this.$el.html(template({navs: config.navs.models, icon: config.icon, wiki: config.tools.findWhere({"title":"Wiki"}), contact: config.contact}));
+      this.$el.html(template({navs: config.navs.models, title: config.title, icon: config.icon, wiki: config.tools.findWhere({"title":"Wiki"}), contact: config.contact}));
       vent.on('ohmage:success:auth', this.logged_in, this);
       vent.on('ohmage:error:auth', this.logged_out);
     },

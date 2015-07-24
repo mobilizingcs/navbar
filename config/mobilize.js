@@ -10,6 +10,7 @@ define([
   config.footer = "This material is based upon work supported by the National Science Foundation under Grant Number 0962919. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation. For more information about the Mobilize grant please visit <a href='http://www.mobilizingcs.org/''>www.mobilizingcs.org</a>";
   config.logo = 'assets/mobilize-logo-full.png'
   config.icon = 'assets/mobilize-icon.png'
+  config.title = 'Mobilize'
   config.app_name = 'ULCA MobilizingCS'
   config.contact = {'email': "support@mobilizingcs.org", 'voice':'(818) 527-2367'}
   config.tools.add({"title":"Class Setup",  "href": "#teacher",  "img": "assets/classsetup.png",  "description_html":"LAUSD Teacher class creation tool"})
