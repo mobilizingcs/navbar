@@ -20,9 +20,14 @@ define([
       vent.on('ohmage:error:auth', this.logged_out);
     },
     events: {
+      "click .navbar-link": "navbarLink",
       "click #logoutlink": "logout",
       "click #change-password-modal-link": "changePasswordModal",
       "submit #change-password-form": "changePassword"
+    },
+    navbarLink: function(e){
+      var link = $(e.currentTarget).attr("href")
+      vent.trigger("route:navlink", link)
     },
     logout: function(){
       oh.logout().done(function(){

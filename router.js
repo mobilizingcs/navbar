@@ -21,17 +21,22 @@ define([
       'register': 'register',
       'activate?registration_id=:id': 'index',
       '*page' : 'pages'
-    }
+    },
   });
 
   var initialize = function(){
     var app_router = new AppRouter;
 
+    vent.on('route:navlinks', function(link){
+      console.log("router: navbar link clicked, navigate there whether or not backbone thinks we are there.")
+      Backbone.history.loadUrl(link)
+    })
+
     vent.on('route', function(route){
       if (Backbone.history.getFragment() !== '') {
         app_router.navigate(route, {trigger: true});
       } else {
-        console.log("smashed login error. on index page.");
+        console.log("router: smashed login error. on index page.");
       }
     })
 

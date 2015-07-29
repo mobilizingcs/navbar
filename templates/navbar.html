@@ -20,12 +20,12 @@
         <% _.each(navs, function(nav){ %>
           <% if (nav.get('dropdown') == false) { %>
             <li class="visible-md visible-lg">
-              <a href="<%- nav.get('href') %>" <%- nav.get('noreferrer') ? 'rel="noreferrer' : '' %>>
+              <a class="navbar-link" href="<%- nav.get('href') %>" <%- nav.get('noreferrer') ? 'rel="noreferrer' : '' %>>
                 <%- nav.get('name') %>
               </a>
             </li>
             <li class="visible-xs visible-sm">
-              <a href="<%- nav.get('href') %>" <%- nav.get('noreferrer') ? 'rel="noreferrer' : '' %>>
+              <a class="navbar-link" href="<%- nav.get('href') %>" <%- nav.get('noreferrer') ? 'rel="noreferrer' : '' %>>
                 <%- nav.get('short_name') %>
               </a>
             </li>
@@ -34,7 +34,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%- nav.get('name') %> <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <% _.each(nav.get('navs'), function(dd_nav){ %>
-                  <li><a href="<%- dd_nav.href %>"><%- dd_nav.name %></a></li>
+                  <li><a class="navbar-link" href="<%- dd_nav.href %>"><%- dd_nav.name %></a></li>
                 <% }) %>
               </ul>
             </li>
@@ -42,7 +42,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%- nav.get('short_name') %> <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <% _.each(nav.get('navs'), function(dd_nav){ %>
-                  <li><a href="<%- dd_nav.href %>" <%- dd_nav.target_blank ? 'target="_blank"' : ''%>><%- dd_nav.name %></a></li>
+                  <li><a class="navbar-link" href="<%- dd_nav.href %>" <%- dd_nav.target_blank ? 'target="_blank"' : ''%>><%- dd_nav.name %></a></li>
                 <% }) %>
               </ul>
             </li>
