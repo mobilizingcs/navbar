@@ -27,7 +27,7 @@ define([
   var initialize = function(){
     var app_router = new AppRouter;
 
-    vent.on('route:navlinks', function(link){
+    vent.on('route:navlink', function(link){
       console.log("router: navbar link clicked, navigate there whether or not backbone thinks we are there.")
       Backbone.history.loadUrl(link)
     })
