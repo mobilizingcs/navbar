@@ -28,6 +28,7 @@ define([
     navbarLink: function(e){
       var link = $(e.currentTarget).attr("href")
       vent.trigger("route:navlink", link)
+      vent.trigger("ohmage:success:auth")
     },
     logout: function(){
       oh.logout().done(function(){
