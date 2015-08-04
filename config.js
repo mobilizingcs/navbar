@@ -4,16 +4,16 @@ define([
   'backbone',
   'vent',
   'oh',
+  'config/_oldflow_ohmage',
   'config/ohmage',
-  'config/newflow',
   'config/mobilize',
   'config/mobilizelabs'
-], function($, _, Backbone, vent, oh, ohmageConfig, newflowConfig, mobilizeConfig, mobilizelabsConfig){
+], function($, _, Backbone, vent, oh, oldohmageConfig, ohmageConfig, mobilizeConfig, mobilizelabsConfig){
   //run on init to determine what sort of ohmage deploy this is.
   var config = {}
     
     //set default first, config/read response will overwrite.
-    config = newflowConfig
+    config = ohmageConfig
     oh.config.read().done(function(x){
       config = x['application_name'] == 'mobilize' ? mobilizeConfig : ohmageConfig;
     })
