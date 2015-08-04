@@ -6,16 +6,21 @@ define([
   'oh',
   'config/_oldflow_ohmage',
   'config/ohmage',
-  'config/mobilize',
-  'config/mobilizelabs'
-], function($, _, Backbone, vent, oh, oldohmageConfig, ohmageConfig, mobilizeConfig, mobilizelabsConfig){
+  'config/mobilize'
+  //'config/mobilizelabs'
+], function($, _, Backbone, vent, oh, oldohmageConfig, ohmageConfig, mobilizeConfig){
   //run on init to determine what sort of ohmage deploy this is.
+  //this should really be 'application_name' param from config/read
+  //but some sort of require/depends issue with require.js is happening.
   var config = {}
-    
-    //set default first, config/read response will overwrite.
-    config = ohmageConfig
-    oh.config.read().done(function(x){
-      config = x['application_name'] == 'mobilize' ? mobilizeConfig : ohmageConfig;
-    })
+  switch (location.hostname) {
+    case 'lausd.mobilizingcs':
+    case 'test.mobilizingcs.org':
+      config = mobilizeConfig;
+      break;
+    default:
+      config = ohmageConfig.initialize();
+      break;
+  }
   return config;
 });

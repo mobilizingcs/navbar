@@ -6,7 +6,7 @@ define([
   'collections/mobileapps',
   'config/ohmage'
 ], function($, _, Backbone, webToolsCollection, mobileAppsCollection, ohmageConfig){
-  var config = ohmageConfig;
+  var config = ohmageConfig.initialize();
   config.footer = 'Copyright 2015 <a href="http://mobilizelabs.org>MobilizeLabs</a>';
   config.logo = 'assets/ohmage-logo-full.png'
   config.app_name = 'ohmageX'
