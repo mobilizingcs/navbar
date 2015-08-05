@@ -11,7 +11,7 @@ define([
   config.logo = 'assets/mobilize-logo-full.png'
   config.icon = 'assets/mobilize-icon.png'
   config.title = 'Mobilize'
-  config.app_name = 'ULCA MobilizingCS'
+  config.app_name = 'UCLA MobilizingCS'
   config.contact = {'email': "support@mobilizingcs.org", 'voice':'(818) 527-2367'}
   config.tools.add({"title":"Class Setup",  "href": "#teacher",  "img": "assets/classsetup.png",  "description_html":"LAUSD Teacher class creation tool"})
   config.tools.add({"title":"RStudio",  "href": "https://rstudio.mobilizingcs.org", "target-blank": true,  "img": "assets/rstudio.png",  "description_html":"User-friendly interface for R"})
