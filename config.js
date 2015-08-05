@@ -14,7 +14,7 @@ define([
   //but some sort of require/depends issue with require.js is happening.
   var config = {}
   switch (location.hostname) {
-    case 'lausd.mobilizingcs':
+    case 'lausd.mobilizingcs.org':
     case 'test.mobilizingcs.org':
       config = mobilizeConfig;
       break;
