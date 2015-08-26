@@ -21,5 +21,6 @@ define([
 
   config.navs.findWhere({"name":"Explore"}).set({"navs": [{"name": "Campaign Monitoring", "href": "#campaign_mgmt/#monitor"}, {"name": "Interactive Dashboard", "href":"#campaign_mgmt/#dashboard"}, {"name": "PlotApp", "href":"#campaign_mgmt/#plotapp"}, {"name":"RStudio", "href":"https://rstudio.mobilizingcs.org", "target_blank": true}]})
   config.navs.add({"name":"Classes", "short_name":"Classes", "href": "#teacher"})
+  config.navs.add({"name":"Demo", "id" : "demolink", "short_name":"Demo", "href": "#../demo.html"})
   return config;
 });

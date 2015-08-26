@@ -30,6 +30,7 @@ define([
     config.navs.add({"name":"Surveys", "short_name":"Surveys", "href": "#", "dropdown": true, "navs": [{"name": "Take", "href": "#survey"}, {"name": "Manage Responses", "href":"#campaign_mgmt/#responses"}]})
     config.navs.add({"name":"Explore", "short_name":"Explore", "href": "#", "dropdown": true, "navs": [{"name": "Campaign Monitoring", "href": "#campaign_mgmt/#monitor"}, {"name": "Interactive Dashboard", "href":"#campaign_mgmt/#dashboard"}, {"name": "PlotApp", "href":"#campaign_mgmt/#plotapp"}]})
     config.navs.add({"name":"Documents", "short_name":"Docs", "href":"#document"})
+    config.navs.add({"name":"Demo", "id" : "demolink", "short_name":"Demo", "href": "#../demo.html"})
     return config;
   }
   return {
