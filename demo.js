@@ -50,7 +50,7 @@ $(function(){
         var ul = $("<ul />").addClass("dropdown-menu").appendTo(btn);
 
         var dashboardlink = $("<a />").appendTo($("<li />").appendTo(ul)).append('<span class="glyphicon glyphicon-picture"></span> Dashboard').attr("href", 'navbar/dashboard/#' + urn)
-        var plotapplink = $("<a />").appendTo($("<li />").appendTo(ul)).append('<span class="glyphicon glyphicon-blackboard"></span> PlotApp').attr("href", 'navbar/plotapp/#' + urn)   
+        var plotapplink = $("<a />").appendTo($("<li />").appendTo(ul)).append('<span class="glyphicon glyphicon-blackboard"></span> PlotApp').attr("href", 'navbar/plotapp/#' + name.toLowerCase() + "demo")   
  
         ul.append($("<li >").addClass('divider')) 
 
