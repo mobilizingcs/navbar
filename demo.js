@@ -45,7 +45,7 @@ $(function(){
 
 		var td5 = $("<td>").addClass("buttontd").appendTo(tr);
         var btn = $("<div />").addClass("dropdown").append('\
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span> Demo <span class="caret"></span></button>').appendTo(td5);
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span> Action <span class="caret"></span></button>').appendTo(td5);
 
         var ul = $("<ul />").addClass("dropdown-menu").appendTo(btn);
 
