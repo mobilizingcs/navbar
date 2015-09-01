@@ -41,13 +41,9 @@ define([
     hashUpdate: function(){
       var iframe = this.$el.find('#meta_iframe');  
       var iframe_href = iframe[0].contentWindow.location;
-
-      //what about urls' that are not under /navbar/ ???
       var location = iframe[0].contentWindow.location.href.match(/navbar\/(.*)/)
-      if(location){
-        location = '#'+location[1];
-        history.pushState('', '', location);  
-      }
+      location = '#'+location[1];
+      history.pushState('', '', location);  
     }
   });
   return iframeView;
