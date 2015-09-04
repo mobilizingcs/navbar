@@ -51,7 +51,10 @@ define([
           console.log("Referrer appears to be a different host or undefined, ignoring.");
            window.self == window.top ? vent.trigger('route', '') : window.location.replace('/');
         } else { //back to app you came from!
-          var returnTo = document.referrer.replace(/^[^:]+:\/\/[^/]+/, '').replace(/#.*/, '').replace(/\?.*/, '');
+          //var returnTo = document.referrer.replace(/^[^:]+:\/\/[^/]+/, '').replace(/#.*/, '').replace(/\?.*/, '');
+          // currently ignores the referrer and instead uses the non-iframe location to send the user back there.
+          // this could really use some testing..
+          var returnTo = "/navbar/"+window.top.location.hash.substring(1)
           window.location.replace(returnTo);
         }
       })
