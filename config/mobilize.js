@@ -19,7 +19,7 @@ define([
   config.apps.findWhere({"title":"Android"}).set({"img":"assets/ohmageX-android.png","href":"https://play.google.com/store/apps/details?id=org.ohmage.mobilizingcs&hl=en"})
   config.apps.findWhere({"title":"iOS"}).set({"img":"assets/ohmageX-ios.jpg","href":"https://itunes.apple.com/us/app/ucla-mobilizingcs/id601202066?mt=8"})
 
-  config.navs.findWhere({"name":"Explore"}).set({"navs": [{"name": "Campaign Monitoring", "href": "#campaign_mgmt/#monitor"}, {"name": "Interactive Dashboard", "href":"#campaign_mgmt/#dashboard"}, {"name": "PlotApp", "href":"#campaign_mgmt/#plotapp"}, {"name":"RStudio", "href":"https://rstudio.mobilizingcs.org", "target_blank": true}]})
+  config.navs.findWhere({"name":"Explore"}).set({"navs": [{"name": "Campaign Monitoring", "href": "#campaigns/#monitor"}, {"name": "Interactive Dashboard", "href":"#campaigns/#dashboard"}, {"name": "PlotApp", "href":"#campaigns/#plotapp"}, {"name":"RStudio", "href":"https://rstudio.mobilizingcs.org", "target_blank": true},{"name":"Demo Data", "href":"#demo"}]})
   config.navs.add({"name":"Classes", "short_name":"Classes", "href": "#teacher"})
   return config;
 });
