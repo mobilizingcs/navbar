@@ -15,11 +15,11 @@ define([
     config.app_name = 'ohmage/ohmageX'
     config.contact = {'email': "support@ohmage.org"} //can contain 'voice':'(555)555-5555'
     config.tools = new webToolsCollection();
-    config.tools.add({"title":"Campaign Manager",  "href": "#campaigns",  "img": "assets/manager.png",  "description_html":"Manage and create campaigns"})
+    config.tools.add({"title":"Campaigns",  "href": "#campaigns",  "img": "assets/manager.png",  "description_html":"Manage and create campaigns"})
     config.tools.add({"title":"Survey Taking", "href": "#survey", "img": "assets/survey.png", "description_html":"Browser-based survey taking"})
     config.tools.add({"title":"Dashboard",  "href": "#campaigns/#dashboard",  "img": "assets/dashboard.png",  "description_html":"Interactive data exploration. Also available: <a target='_blank' href='#demo'>Public board</a>"})
     config.tools.add({"title":"Plot App",  "href": "#campaigns/#plotapp", "img": "assets/plotapp.png",  "description_html":"R-based data exploration"})
-    config.tools.add({"title":"Campaign Monitor",  "href": "#campaigns/#monitor", "img": "assets/monitoring.png",  "description_html":"Campaign progress tracking tool"})
+    config.tools.add({"title":"Monitor",  "href": "#campaigns/#monitor", "img": "assets/monitoring.png",  "description_html":"Campaign progress tracking tool"})
     config.tools.add({"title":"Documents",  "href": "#documents",  "img": "assets/document.png",  "description_html":"Manage and upload documents"})
     config.tools.add({"title":"Wiki",  "href": "https://wiki.ohmage.org", "target-blank": true,  "img": "assets/ohmage-wiki.png",  "description_html":"How-to guides, video tutorials, etc."})
     config.apps = new mobileAppsCollection();
