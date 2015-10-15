@@ -83,7 +83,8 @@ define([
       registerview.render();
     })
   
-    app_router.on('route:pages', function(page){
+    app_router.on('route:pages', function(page, args){
+      if(args) page = page + "?" + args;
       console.log('pages route: '+page)
       $(".display").hide();
       $("#iframe").show();
