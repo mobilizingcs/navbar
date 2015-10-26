@@ -43,7 +43,7 @@ define([
       var iframe_href = iframe[0].contentWindow.location;
       var location = iframe[0].contentWindow.location.href.match(/navbar\/(.*)/)
       location = '#'+location[1];
-      history.pushState('', '', location);  
+      history.replaceState('', '', location);  
     }
   });
   return iframeView;
