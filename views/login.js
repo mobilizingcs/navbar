@@ -29,7 +29,7 @@ define([
       vent.on('snuff:login', this.undelegate, this);
       vent.on("ohmage:error:new_account", this.forcePasswordChange, this);
       vent.on("updated:password", this.login, this)
-      vent.on("ohmage:error", this.message, this)
+      vent.on("ohmage:error:auth", this.message, this)
       vent.on('ohmage:loggedin', this.logged_in, this);
     },
     events: {
@@ -49,7 +49,7 @@ define([
       oh.login($("#username").val(), $("#password").val()).done(function(token){
         $.cookie("auth_token", token);
         vent.trigger('ohmage:success:auth', $("#username").val());
-        if (document.referrer.split('/')[2] != location.host) { //redirect to home if referrer is unknown.
+        if (document.referrer.split('/')[2] != location.host || window.top.location.hash.substring(1) == 'login') { //redirect to home if referrer is unknown.
           console.log("Referrer appears to be a different host or undefined, ignoring.");
            window.self == window.top ? vent.trigger('route', '') : window.location.replace('/');
         } else { //back to app you came from!
@@ -60,19 +60,6 @@ define([
           window.location.replace(returnTo);
         }
       })
-    },
-    returnToAfterLogin: function(){
-      if (document.referrer.split('/')[2] != location.host) { //redirect to home if referrer is unknown.
-        console.log("Referrer appears to be a different host or undefined, ignoring.");
-         window.self == window.top ? vent.trigger('route', '') : window.location.replace('/');
-      } else { //back to app you came from!
-        //var returnTo = document.referrer.replace(/^[^:]+:\/\/[^/]+/, '').replace(/#.*/, '').replace(/\?.*/, '');
-        // currently ignores the referrer and instead uses the non-iframe location to send the user back there.
-        // this could really use some testing..
-        var returnTo = window.top.location.hash.substring(1)
-        //console.log("redirectUri is: "+returnTo);
-        return returnTo;
-      }      
     },
     forcePasswordChange: function(){
       $("#force-reset-modal").modal("show");
