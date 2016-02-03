@@ -8,6 +8,7 @@ require.config({
     ohmage: 'lib/ohmage',
     text: 'lib/text',
     async: 'lib/async',
+    keycloak: 'lib/keycloak',
     'jquery.validate': '//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min',
     'recaptchav1': "https://www.google.com/recaptcha/api/js/recaptcha_ajax"
   },
@@ -23,12 +24,16 @@ require.config({
   	},
     'jquery.validate': {
       deps: ['jquery']
+    },
+    'keycloak': {
+      deps: ['jquery.cookie']
     }
   }
 });
 
 require([
+  'kc',
   'app'
-], function(App){
+], function(kc, App){
   App.initialize();
 });

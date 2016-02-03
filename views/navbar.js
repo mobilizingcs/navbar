@@ -5,20 +5,24 @@ define([
   'bootstrap',
   'vent',
   'oh',
+  'kc',
   'config',
   'text!templates/navbar.html',
   'text!templates/accountdetails.html',
   'text!templates/changepassword.html',
   'text!templates/message.html'
-], function($, _, Backbone, bootstrap, vent, oh, config, navbarTemplate, accountDetailsTemplate, changePasswordTemplate, messageTemplate){
+], function($, _, Backbone, bootstrap, vent, oh, kc, config, navbarTemplate, accountDetailsTemplate, changePasswordTemplate, messageTemplate){
   var navbarView = Backbone.View.extend({
     el: $("#navbar"),
     initialize: function(){
       var template = _.template(navbarTemplate);
       this.$el.html(template({navs: config.navs.models, title: config.title, icon: config.icon, wiki: config.tools.findWhere({"title":"Wiki"}), contact: config.contact}));
       document.title = config.title;
+
       vent.on('ohmage:success:auth', this.logged_in, this);
       vent.on('ohmage:error:auth', this.logged_out);
+      vent.on('ohmage:keycloak:token:expired', this.refreshKeycloakToken);
+      vent.on('ohmage:keycloak:token:active', this.activeKeycloakToken);
     },
     events: {
       "click .navbar-link": "navbarLink",
@@ -37,6 +41,8 @@ define([
         vent.trigger('ohmage:error:auth');
         vent.trigger('route', '');
       });
+      kc.logout();
+      $.removeCookie("KEYCLOAK_TOKEN");
     },
     logged_out: function(){
       $("#username-li").hide();
@@ -46,7 +52,7 @@ define([
     logged_in: function(){
       var that = this;
       $("#login-li").hide();
-      $("#username-li").show()
+      $("#username-li").show();
       $("#logoutlink").show();
       oh.user.whoami().done(function(username){
         $("#nav-username").text(username);
@@ -54,7 +60,6 @@ define([
           var user_details = r[username];
           user_details['permissions']['admin'] ? $("#admin-link").show() : $("#admin-link").hide();
           that.accountDetailsModal(username, user_details);
-          //that.changePasswordModal(username);
         });
       })
     },
@@ -102,6 +107,24 @@ define([
       var target = '.errordiv.change'; 
       var template = _.template(messageTemplate);
       $(target).html(template({status: status, msg: msg})).fadeIn(100);
+    },
+    refreshKeycloakToken: function(){
+      //requests to update the token
+      console.log("attempting to refresh the keycloak token...");
+      kc.updateToken(5).success(function(){
+        $.cookie("KEYCLOAK_TOKEN", kc.token);
+        console.log("refresh successful.")
+        vent.trigger('ohmage:success:auth');
+      }).error(function() {
+        kc.clearToken();
+        $.removeCookie("KEYCLOAK_TOKEN");
+        vent.trigger('ohmage:error:auth');
+      });
+    },
+    activeKeycloakToken: function(){
+      console.log("an active token has been found!");
+      $.cookie("KEYCLOAK_TOKEN", kc.token);
+      vent.trigger('ohmage:success:auth');
     }
   });
 
