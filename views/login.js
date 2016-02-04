@@ -29,7 +29,7 @@ define([
       vent.on('snuff:login', this.undelegate, this);
       vent.on("ohmage:error:new_account", this.forcePasswordChange, this);
       vent.on("updated:password", this.login, this)
-      vent.on("ohmage:error:auth", this.message, this)
+      vent.on("ohmage:error", this.message, this)
       vent.on('ohmage:loggedin', this.logged_in, this);
     },
     events: {
@@ -49,7 +49,7 @@ define([
       oh.login($("#username").val(), $("#password").val()).done(function(token){
         $.cookie("auth_token", token);
         vent.trigger('ohmage:success:auth', $("#username").val());
-        if (document.referrer.split('/')[2] != location.host || window.top.location.hash.substring(1) == 'login') { //redirect to home if referrer is unknown.
+        if (document.referrer.split('/')[2] != location.host || window.top.location.hash == "#login") { //redirect to home if referrer is unknown.
           console.log("Referrer appears to be a different host or undefined, ignoring.");
            window.self == window.top ? vent.trigger('route', '') : window.location.replace('/');
         } else { //back to app you came from!
@@ -98,7 +98,7 @@ define([
     message: function(msg, status){
       var target = ($("element").data('bs.modal') || {}).isShown ? '.errordiv.reset' : '.errordiv.login'; 
       var template = _.template(messageTemplate);
-      $(target).html(template({status: status, msg: msg})).fadeIn(100);
+      $(target).html(template({status: status, msg: msg})).hide().fadeIn(100);
     },
     undelegate: function(){
       this.undelegateEvents();
