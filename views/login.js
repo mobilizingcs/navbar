@@ -53,11 +53,9 @@ define([
           console.log("Referrer appears to be a different host or undefined, ignoring.");
            window.self == window.top ? vent.trigger('route', '') : window.location.replace('/');
         } else { //back to app you came from!
-          //var returnTo = document.referrer.replace(/^[^:]+:\/\/[^/]+/, '').replace(/#.*/, '').replace(/\?.*/, '');
           // currently ignores the referrer and instead uses the non-iframe location to send the user back there.
           // this could really use some testing..
-          var returnTo = "/navbar/"+window.top.location.hash.substring(1)
-          window.location.replace(returnTo);
+          vent.trigger("route:navlink", window.top.location.hash)
         }
       })
     },
@@ -105,15 +103,8 @@ define([
     },
     keycloakAuth: function(e){
       e.preventDefault();
-      var that = this;
-      var redirectUri = location.origin;
-      if (document.referrer.split('/')[2] != location.host || window.top.location.hash == "#login") { //redirect to home if referrer is unknown.
-        console.log("Referrer appears to be a different host, undefined or unimportant, ignoring.");
-      } else { //back to app you came from!
-        redirectUri = location.origin + "/" + window.top.location.hash; 
-      }
-      console.log("redirectUri is: "+redirectUri);
-      kc.login({redirectUri: redirectUri});
+      $.cookie("redirect_to_frontend", location.hash.substring(1));
+      kc.login({redirectUri: location.href});
     }
   });
   return loginView;

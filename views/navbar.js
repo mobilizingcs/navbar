@@ -41,7 +41,7 @@ define([
         vent.trigger('ohmage:error:auth');
         vent.trigger('route', '');
       });
-      kc.logout();
+      kc.logout({redirectUri: location.origin});
       $.removeCookie("KEYCLOAK_TOKEN");
     },
     logged_out: function(){

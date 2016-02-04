@@ -8,8 +8,8 @@ define([
   var kc = new Keycloak();
   kc.init({
    onLoad: 'check-sso',
-   checkLoginIframeInterval: 1,
-   responseMode: 'query' 
+   checkLoginIframeInterval: 1
+   //responseMode: 'query' 
   }).success(function (authenticated) {
     if (authenticated) {
       $.cookie('KEYCLOAK_TOKEN', kc.token);
