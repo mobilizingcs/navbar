@@ -18,6 +18,7 @@ define([
         //a hack to leave the iframe in iframe login. this makes it easier for the clients??
         var iframe_location = iframe[0].contentWindow.location
         if (iframe_location.hash == '#login' && !(iframe_location.href.match(/navbar\/(.*)/))){
+          vent.trigger("route:navlink", 'login');
           vent.trigger('ohmage:error:auth');
           that.iframe_logging_in = true;
         } else {
@@ -35,7 +36,7 @@ define([
       vent.on('iframe:hash', this.hashUpdate, this)
     },
     navigate: function(src){
-      console.log('iframe navigating to: '+src)
+      console.log('iframe navigating to: '+src);
       this.$el.find('#meta_iframe').attr("src", '/navbar/' + src);
     },
     hashUpdate: function(){

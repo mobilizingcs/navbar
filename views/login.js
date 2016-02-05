@@ -5,10 +5,11 @@ define([
   'vent',
   'oh',
   'jquery.validate',
+  'kc',
   'config',
   'text!templates/login.html',
   'text!templates/message.html'
-], function($, _, Backbone, vent, oh, validate, config, loginTemplate, messageTemplate){
+], function($, _, Backbone, vent, oh, validate, kc, config, loginTemplate, messageTemplate){
   var loginView = Backbone.View.extend({
     el: $("#login"),
     initialize: function(){
@@ -20,7 +21,7 @@ define([
       var that = this;
       oh.config.read().done(function(data){
         var template = _.template(loginTemplate);
-        that.$el.html(template({registration: data.self_registration_allowed, config: config}));
+        that.$el.html(template({registration: data.self_registration_allowed, external: data.keycloak_enabled, config: config}));
         $("#login-form").validate();
         $("#username").focus();
       });
@@ -33,7 +34,8 @@ define([
     },
     events: {
       "submit #login-form": "login",
-      "submit #force-reset-form": "changePassword"
+      "submit #force-reset-form": "changePassword",
+      "click #external-auth": "keycloakAuth"
     },
     logged_in: function(){
       console.log("login: you're logged in, why did you come here?");
@@ -47,15 +49,13 @@ define([
       oh.login($("#username").val(), $("#password").val()).done(function(token){
         $.cookie("auth_token", token);
         vent.trigger('ohmage:success:auth', $("#username").val());
-        if (document.referrer.split('/')[2] != location.host) { //redirect to home if referrer is unknown.
+        if (document.referrer.split('/')[2] != location.host || window.top.location.hash == "#login") { //redirect to home if referrer is unknown.
           console.log("Referrer appears to be a different host or undefined, ignoring.");
            window.self == window.top ? vent.trigger('route', '') : window.location.replace('/');
         } else { //back to app you came from!
-          //var returnTo = document.referrer.replace(/^[^:]+:\/\/[^/]+/, '').replace(/#.*/, '').replace(/\?.*/, '');
           // currently ignores the referrer and instead uses the non-iframe location to send the user back there.
           // this could really use some testing..
-          var returnTo = "/navbar/"+window.top.location.hash.substring(1)
-          window.location.replace(returnTo);
+          vent.trigger("route:navlink", window.top.location.hash)
         }
       })
     },
@@ -96,10 +96,15 @@ define([
     message: function(msg, status){
       var target = ($("element").data('bs.modal') || {}).isShown ? '.errordiv.reset' : '.errordiv.login'; 
       var template = _.template(messageTemplate);
-      $(target).html(template({status: status, msg: msg})).fadeIn(100);
+      $(target).html(template({status: status, msg: msg})).hide().fadeIn(100);
     },
     undelegate: function(){
       this.undelegateEvents();
+    },
+    keycloakAuth: function(e){
+      e.preventDefault();
+      $.cookie("redirect_to_frontend", location.hash.substring(1));
+      kc.login({redirectUri: location.href});
     }
   });
   return loginView;

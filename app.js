@@ -4,8 +4,9 @@ define([
   'backbone',
   'router',
   'vent',
-  'oh'
-], function($, _, Backbone, Router, vent, oh){
+  'oh',
+  'kc'
+], function($, _, Backbone, Router, vent, oh, kc){
   var initialize = function(){
     vent.on('ohmage:error:auth', function(msg){
       console.log("error from ohmage: "+msg)

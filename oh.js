@@ -17,6 +17,8 @@ define([
       vent.trigger("ohmage:error:auth", msg, 'danger');
     } else if (msg.match("New accounts aren't allowed to use this service")) {
       vent.trigger("ohmage:error:new_account");
+    } else if (msg.match("auth header")) {
+      //vent.trigger("ohmage:error:new_account");
     } else {
       vent.trigger("ohmage:error", msg, 'danger')
     }

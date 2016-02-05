@@ -127,3 +127,35 @@ body {
 .recaptchatable #recaptcha_response_field {
   height: initial;
 }
+
+.strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap; 
+}
+
+.strike > span {
+    position: relative;
+    display: inline-block;
+}
+
+.strike > span:before,
+.strike > span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 1px;
+    background: rgba(0,0,0,.15);
+}
+
+.strike > span:before {
+    right: 100%;
+    margin-right: 10px;
+}
+
+.strike > span:after {
+    left: 100%;
+    margin-left: 10px;
+}
