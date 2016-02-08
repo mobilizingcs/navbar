@@ -21,7 +21,7 @@ define([
       var that = this;
       oh.config.read().done(function(data){
         var template = _.template(loginTemplate);
-        that.$el.html(template({registration: data.self_registration_allowed, external: data.keycloak_enabled, config: config}));
+        that.$el.html(template({registration: data.self_registration_allowed, external: data.keycloak_auth_enabled, config: config}));
         $("#login-form").validate();
         $("#username").focus();
       });
