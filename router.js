@@ -15,17 +15,12 @@ define([
 ], function($, _, Backbone, vent, webToolsView, mobileAppsView, footerView, navbarView, loginView, recoverView, registerView, activationView, iframeView){
   var AppRouter = Backbone.Router.extend({
     routes: {
-      'login?frontend=:foo' : 'showPosts',
       '': 'index',
-
       'login': 'login',
       'recover': 'recover',
       'register': 'register',
       'activate?registration_id=:id': 'index',
       '*page' : 'pages',
-    },
-    showPosts: function (foo) {
-      console.log("hi");
     }
   });
 
@@ -49,12 +44,7 @@ define([
       // assume we are in an iframe if we aren't the top.
       var navbarview = new navbarView();
       navbarview.render();
-    } 
-
-    app_router.on('route:kc', function(queryString, args){
-      console.log('router catches this!');
-      console.log(queryString);
-    })
+    }
 
     app_router.on('route:index', function(id){
       $(".display").hide();
@@ -106,7 +96,6 @@ define([
     Backbone.history.start();
 
     if ($.cookie('redirect_to_frontend')) {
-      console.log("boom");
       var f = $.cookie('redirect_to_frontend');
       $.removeCookie('redirect_to_frontend');
       app_router.navigate(f, {trigger: true});

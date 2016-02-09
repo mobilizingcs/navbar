@@ -3,6 +3,7 @@
 echo 'server {
   listen       80;
   server_name  localhost;
+  sendfile off;
 
   location / {
     root   /var/www;

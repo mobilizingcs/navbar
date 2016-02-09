@@ -103,7 +103,9 @@ define([
     },
     keycloakAuth: function(e){
       e.preventDefault();
-      $.cookie("redirect_to_frontend", location.hash.substring(1));
+      if (location.hash != "#login") {
+        $.cookie("redirect_to_frontend", location.hash.substring(1));
+      }
       kc.login({redirectUri: location.href});
     }
   });
