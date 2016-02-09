@@ -47,6 +47,7 @@ define([
         return false;
       }
       oh.login($("#username").val(), $("#password").val()).done(function(token){
+        $.removeCookie("KEYCLOAK_TOKEN");
         $.cookie("auth_token", token);
         vent.trigger('ohmage:success:auth', $("#username").val());
         if (document.referrer.split('/')[2] != location.host || window.top.location.hash == "#login") { //redirect to home if referrer is unknown.
