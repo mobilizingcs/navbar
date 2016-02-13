@@ -19,6 +19,10 @@ define([
       this.$el.html(template({navs: config.navs.models, title: config.title, icon: config.icon, wiki: config.tools.findWhere({"title":"Wiki"}), contact: config.contact}));
       document.title = config.title;
 
+      oh.user.whoami().done(function(username){
+        vent.trigger('ohmage:success:auth', username);
+      });
+
       vent.on('ohmage:success:auth', this.logged_in, this);
       vent.on('ohmage:error:auth', this.logged_out);
       vent.on('ohmage:keycloak:token:expired', this.refreshKeycloakToken);

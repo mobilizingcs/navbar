@@ -20,10 +20,15 @@ define([
       });
       var that = this;
       oh.config.read().done(function(data){
-        var template = _.template(loginTemplate);
-        that.$el.html(template({registration: data.self_registration_allowed, external: data.keycloak_auth_enabled, config: config}));
-        $("#login-form").validate();
-        $("#username").focus();
+        if (data.local_auth_enabled) {
+          var template = _.template(loginTemplate);
+          that.$el.html(template({registration: data.self_registration_allowed, external: data.keycloak_auth_enabled, config: config}));
+          $("#login-form").validate();
+          $("#username").focus();
+        } else {
+          console.log("hi");
+          that.keycloakAuth();
+        }
       });
 
       vent.on('snuff:login', this.undelegate, this);
@@ -102,7 +107,9 @@ define([
       this.undelegateEvents();
     },
     keycloakAuth: function(e){
-      e.preventDefault();
+      if (e) {
+        e.preventDefault();
+      }
       if (location.hash != "#login") {
         $.cookie("redirect_to_frontend", location.hash.substring(1));
       }
