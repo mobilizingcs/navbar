@@ -26,7 +26,6 @@ define([
           $("#login-form").validate();
           $("#username").focus();
         } else {
-          console.log("hi");
           that.keycloakAuth();
         }
       });
