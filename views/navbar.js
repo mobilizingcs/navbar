@@ -21,6 +21,11 @@ define([
 
       oh.user.whoami().done(function(username){
         vent.trigger('ohmage:success:auth', username);
+      }).error(function(){
+        // on error, let's first assume that the keycloak token didn't make it to a cookie yet.
+        if (kc.authenticated) {
+          vent.trigger('ohmage:keycloak:token:active');
+        }
       });
 
       vent.on('ohmage:success:auth', this.logged_in, this);
