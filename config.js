@@ -23,7 +23,7 @@ define([
       config = mobilizelabsConfig
       break;
     default:
-      config = ohmageConfig.initialize();
+      config = mobilizeInABoxConfig;
       break;
   }
   return config;

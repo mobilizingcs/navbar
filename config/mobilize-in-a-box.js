@@ -12,9 +12,12 @@ define([
   config.icon = 'assets/mobilize-icon.png'
   config.title = 'Mobilize'
   config.app_name = 'UCLA MobilizingCS'
+  config.tools.add({"title":"Classes",  "href": "#classes",  "img": "assets/classsetup.png",  "description_html":"Class management tool"})
   config.tools.add({"title":"RStudio",  "href": "#rstudio", "img": "assets/rstudio.png",  "description_html":"User-friendly interface for R"})
   config.tools.findWhere({"title":"Wiki"}).set({"href": "#wiki", "img": "assets/mobilize-wiki.png", "target-blank": false, "description_html":"All materials: curricula, how-to guides, video tutorials, etc."})
   config.apps.findWhere({"title":"Android"}).set({"img":"assets/ohmageX-android.png","href":"https://play.google.com/store/apps/details?id=org.ohmage.mobilizingcs&hl=en"})
   config.apps.findWhere({"title":"iOS"}).set({"img":"assets/ohmageX-ios.jpg","href":"https://itunes.apple.com/us/app/ucla-mobilizingcs/id601202066?mt=8"})
+  config.navs.findWhere({"name":"Explore"}).set({"navs": [{"name": "Campaign Monitoring", "href": "#campaigns/#monitor"}, {"name": "Interactive Dashboard", "href":"#campaigns/#dashboard"}, {"name": "PlotApp", "href":"#campaigns/#plotapp"}, {"name":"RStudio", "href":"#rstudio"},{"name":"Demo Data", "href":"#demo"}]})
+  config.navs.add({"name":"Classes", "short_name":"Classes", "href": "#classes"})
   return config;
 });
