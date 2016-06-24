@@ -37,14 +37,6 @@ define([
     },
     navigate: function(src){
       console.log('iframe navigating to: '+src);
-      // add a ending slash unless it isn't needed.
-      // without this, browsers tend to reset the request to add a slash as in:
-      // /navbar/campaigns resets to /navbar/campaigns/ (which can also cause a bug in non-https with iframes..)
-      if (/(\/|#)/.test(src)) {
-        src = src
-      } else {
-        src = src + '/'
-      }
       this.$el.find('#meta_iframe').attr("src", '/navbar/' + src);
     },
     hashUpdate: function(){
