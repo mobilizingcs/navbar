@@ -12,6 +12,7 @@ define([
   config.icon = 'assets/mobilize-icon.png'
   config.title = 'Mobilize'
   config.app_name = 'UCLA MobilizingCS'
+  config.contact = {'email': "help@mobilizingcs.org"}  
   config.tools.add({"title":"Classes",  "href": "#classes",  "img": "assets/classsetup.png",  "description_html":"Class management tool"})
   config.tools.add({"title":"RStudio",  "href": "#rstudio", "img": "assets/rstudio.png",  "description_html":"User-friendly interface for R"})
   config.tools.findWhere({"title":"Wiki"}).set({"href": "https://wiki.mobilizingcs.org", "img": "assets/mobilize-wiki.png", "target-blank": true, "description_html":"All materials: curricula, how-to guides, video tutorials, etc."})
