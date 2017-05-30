@@ -18,6 +18,7 @@ define([
   switch (location.hostname) {
     case 'ids.mobilizingcs.org':
       config = idsConfig;
+      break;
     case 'lausd.mobilizingcs.org':
     case 'test.mobilizingcs.org':
       config = mobilizeConfig;
