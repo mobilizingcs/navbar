@@ -26,3 +26,61 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="user-modal2" tabIndex="-1" role="dialog" aria-labelledby="user-modalLabel2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="user-modal-username">Resetting Rstudio Session for <%- username %></h4>
+      </div>
+      <div class="modal-body">
+	    <p> If you can not login your Rstudio for some reason, you may use this tool to reset your Rstudio session. </p>
+        <p> Warning: You may lose your current session after resetting your session. </p>		
+        <button onclick="myFunction1()">Reset Rstudio Now</button>
+		<p></p>
+		<p> If you still can not login your Rstudio for some reason, you may use this tool to deep reset your Rstudio session. </p>
+		<p> Warning: You may lose your current session and workspace data after deep resetting your session. </p>
+		<button onclick="myFunction2()">Deep Reset Rstudio Now</button>
+        <p></p>
+		<p> If this tool still does not work for you, please contact your supervisor and/or email support@mobilizingcs.org with your info</p>
+		
+		<script>
+		    function myFunction1() {
+				let d = new Date();
+				var injections= '<%- username %>';
+				alert("Today's date is " + d + "\n\nThe Rstudio will be reset for "+injections);
+				var xhttp = new XMLHttpRequest();
+				var getUrl = window.location;
+				xhttp.open("GET", getUrl .protocol + "//" + getUrl.host + "/" +"/app/user/whoami?client=xxx&device_id="+injections, true);
+				xhttp.send();
+			}
+		    function myFunction2() {
+				let d = new Date();
+				var injections= '<%- username %>';
+				alert("Today's date is " + d + "\n\nThe Rstudio will be deep reset for "+injections);
+				var xhttp = new XMLHttpRequest();
+				var getUrl = window.location;
+				xhttp.open("GET", getUrl .protocol + "//" + getUrl.host + "/" +"/app/user/whoami?client=xxxx&device_id="+injections, true);
+				xhttp.send();
+			}
+		</script>
+        <% if (user.first_name) { %>
+        <dl class="dl-horizontal">
+          <dt>First Name</dt>
+          <dd><%- user.first_name %></dd>
+          <dt>Last Name</dt>
+          <dd><%- user.last_name %></dd>
+          <dt>Organization</dt>
+          <dd><%- user.organization %></dd>
+          <dt>Personal ID</dt>
+          <dd><%- user.personal_id %></dd>
+          <dt>E-mail</dt>
+          <dd><%- user.email_address %></dd>
+        </dl>
+        <% } else { %>
+        <% } %>
+      </div> <!--modal-body-->
+    </div>
+  </div>
+</div>
