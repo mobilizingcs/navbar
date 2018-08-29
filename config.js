@@ -17,6 +17,9 @@ define([
   var config = {}
   switch (location.hostname) {
     case 'ids.mobilizingcs.org':
+    case 'ids.centinela.k12.ca.us':
+    case 'tools.idsucla.org':
+    case 'mobilize.lausd.org':
       config = idsConfig;
       break;
     case 'lausd.mobilizingcs.org':
