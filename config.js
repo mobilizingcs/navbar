@@ -37,4 +37,4 @@ define([
       break;
   }
   return config;
-});
+});    
