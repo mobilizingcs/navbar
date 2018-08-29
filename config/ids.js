@@ -10,9 +10,9 @@ define([
   config.footer = "This material is based upon work supported by the National Science Foundation under Grant Number 0962919. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation. For more information about the Mobilize grant please visit <a href='http://www.mobilizingcs.org/''>www.mobilizingcs.org</a>";
   config.logo = 'assets/ids-height-80.png'
   config.icon = 'assets/ids-icon.png'
-  config.title = 'Mobilize'
+  config.title = 'IDS'
   config.app_name = 'UCLA MobilizingCS'
-  config.contact = {'email': "support@mobilizingcs.org"}
+  config.contact = {'email': "support@idsucla.org"}
   config.tools.add({"title":"Class Setup",  "href": "#classes",  "img": "assets/classsetup.png",  "description_html":"Class management tool"})
   config.tools.add({"title":"RStudio",  "href": "#rstudio", "img": "assets/rstudio.png",  "description_html":"User-friendly interface for R"})
   config.tools.findWhere({"title":"Wiki"}).set({"href": "https://ids-wiki.mobilizingcs.org", "img": "assets/mobilize-wiki.png", "target-blank": true, "description_html":"All materials: curricula, how-to guides, video tutorials, etc."})
