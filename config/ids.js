@@ -14,7 +14,7 @@ define([
   config.app_name = 'UCLA MobilizingCS'
   config.contact = {'email': "support@idsucla.org"}
   config.tools.add({"title":"Class Setup",  "href": "#classes",  "img": "assets/classsetup.png",  "description_html":"Class management tool"})
-  config.tools.add({"title":"RStudio",  "href": "#rstudio", "img": "assets/rstudio.png",  "description_html":"User-friendly interface for R"})
+  config.tools.add({"title":"RStudio",  "href": "https://ids.mobilizingcs.org/#rstudio/", "img": "assets/rstudio.png",  "description_html":"User-friendly interface for R"})
   config.tools.findWhere({"title":"Wiki"}).set({"href": "https://ids-wiki.mobilizingcs.org", "img": "assets/mobilize-wiki.png", "target-blank": true, "description_html":"All materials: curricula, how-to guides, video tutorials, etc."})
   config.apps.findWhere({"title":"Android"}).set({"img":"assets/ohmageX-android.png","href":"https://play.google.com/store/apps/details?id=org.ohmage.mobilizingcs&hl=en"})
   config.apps.findWhere({"title":"iOS"}).set({"img":"assets/ohmageX-ios.jpg","href":"https://itunes.apple.com/us/app/ucla-mobilizingcs/id601202066?mt=8"})
