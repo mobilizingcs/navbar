@@ -68,6 +68,7 @@ define([
         oh.user.read({user_list : username}).done(function(r){
           var user_details = r[username];
           user_details['permissions']['admin'] ? $("#admin-link").show() : $("#admin-link").hide();
+          user_details['permissions']['can_create_classes'] ? $("#admin-link2").show() : $("#admin-link2").hide();
           that.accountDetailsModal(username, user_details);
         });
       })
