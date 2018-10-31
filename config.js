@@ -18,6 +18,8 @@ define([
   var config = {}
   switch (location.hostname) {
     case 'ids.mobilizingcs.org':
+    case 'ids.gseis.ucla.edu':
+    case 'ids.stat.ucla.edu':
     case 'tools.idsucla.org':
     case 'mobilize.lausd.org':
       config = idsConfig;
