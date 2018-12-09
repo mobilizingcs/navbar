@@ -22,6 +22,7 @@ define([
     case 'ids.stat.ucla.edu':
     case 'tools.idsucla.org':
     case 'mobilize.lausd.org':
+    case 'www.ids.gseis.ucla.edu':
       config = idsConfig;
       break;
     case 'ids.centinela.k12.ca.us':
