@@ -26,6 +26,9 @@ define([
       config = idsConfig;
       break;
     case 'ids.centinela.k12.ca.us':
+    case 'centinela.mobilizingcs.org':
+    case 'centinela.idsucla.org':
+    case 'centinela.introdatascience.org':   
       config = idscentinelaConfig;
       break;
     case 'lausd.mobilizingcs.org':
