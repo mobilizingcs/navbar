@@ -16,8 +16,15 @@ define([
       that.iframe_logging_in = false
       iframe.on('load', function(){
         //a hack to leave the iframe in iframe login. this makes it easier for the clients??
+		var iframe_location_valid = true
         var iframe_location = iframe[0].contentWindow.location
-        if (iframe_location.hash == '#login' && !(iframe_location.href.match(/navbar\/(.*)/))){
+		try {
+		  var iframe_location_test = iframe_location.hash
+		}
+		catch(err) {
+		  iframe_location_valid = false
+		}
+        if (iframe_location_valid && iframe_location.hash == '#login' && !(iframe_location.href.match(/navbar\/(.*)/))){
           vent.trigger("route:navlink", 'login');
           vent.trigger('ohmage:error:auth');
           that.iframe_logging_in = true;
