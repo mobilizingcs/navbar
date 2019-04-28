@@ -32,7 +32,7 @@ define([
       config = idscentinelaConfig;
       break;
     case 'ids.lbusd.k12.ca.us':
-	case 'lbschools.net':
+	case 'ids.lbschools.net':
     case 'longbeach.mobilizingcs.org':
 	case 'lb.mobilizingcs.org':
     case 'longbeach.idsucla.org': 
