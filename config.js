@@ -10,8 +10,9 @@ define([
   'config/mobilizelabs',
   'config/mobilize-in-a-box',
   'config/ids',
-  'config/idscentinela'
-], function($, _, Backbone, vent, oh, oldohmageConfig, ohmageConfig, mobilizeConfig, mobilizelabsConfig, mobilizeInABoxConfig, idsConfig, idscentinelaConfig){
+  'config/idscentinela',
+  'config/longbeach'
+], function($, _, Backbone, vent, oh, oldohmageConfig, ohmageConfig, mobilizeConfig, mobilizelabsConfig, mobilizeInABoxConfig, idsConfig, idscentinelaConfig,idslongbeachConfig){
   //run on init to determine what sort of ohmage deploy this is.
   //this should really be 'application_name' param from config/read
   //but some sort of require/depends issue with require.js is happening.
@@ -37,7 +38,7 @@ define([
 	case 'lb.mobilizingcs.org':
     case 'longbeach.idsucla.org': 
     case 'lb.idsucla.org':	
-      config = idscentinelaConfig;
+      config = idslongbeachConfig;
       break;
     case 'lausd.mobilizingcs.org':
     case 'test.mobilizingcs.org':
