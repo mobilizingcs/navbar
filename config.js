@@ -31,6 +31,14 @@ define([
     case 'centinela.introdatascience.org':   
       config = idscentinelaConfig;
       break;
+    case 'ids.lbusd.k12.ca.us':
+	case 'lbschools.net':
+    case 'longbeach.mobilizingcs.org':
+	case 'lb.mobilizingcs.org':
+    case 'longbeach.idsucla.org': 
+    case 'lb.idsucla.org':	
+      config = idscentinelaConfig;
+      break;
     case 'lausd.mobilizingcs.org':
     case 'test.mobilizingcs.org':
       config = mobilizeConfig;
