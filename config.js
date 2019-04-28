@@ -11,7 +11,7 @@ define([
   'config/mobilize-in-a-box',
   'config/ids',
   'config/idscentinela',
-  'config/longbeach'
+  'config/idslongbeach'
 ], function($, _, Backbone, vent, oh, oldohmageConfig, ohmageConfig, mobilizeConfig, mobilizelabsConfig, mobilizeInABoxConfig, idsConfig, idscentinelaConfig,idslongbeachConfig){
   //run on init to determine what sort of ohmage deploy this is.
   //this should really be 'application_name' param from config/read
