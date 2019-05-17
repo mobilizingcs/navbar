@@ -38,6 +38,8 @@ define([
 	case 'lb.mobilizingcs.org':
     case 'longbeach.idsucla.org': 
     case 'lb.idsucla.org':	
+	case 'lbusd.idsucla.org':	
+	case 'lbusd.mobilizingcs.org':	
       config = idslongbeachConfig;
       break;
     case 'lausd.mobilizingcs.org':
