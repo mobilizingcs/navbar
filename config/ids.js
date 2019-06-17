@@ -14,7 +14,7 @@ define([
   config.app_name = 'IDS UCLA APP'
   config.contact = {'email': "support@idsucla.org"}
   config.tools.add({"title":"Class Setup",  "href": "#classes",  "img": "assets/classsetup.png",  "description_html":"Class management tool"})
-  config.tools.add({"title":"RStudio",  "href": "https://ids.mobilizingcs.org/#rstudio/", "img": "assets/rstudio.png",  "description_html":"User-friendly interface for R"})
+  config.tools.add({"title":"RStudio",  "href": "#rstudio", "img": "assets/rstudio.png",  "description_html":"User-friendly interface for R"})
   config.tools.findWhere({"title":"Wiki"}).set({"href": "https://ids-wiki.mobilizingcs.org", "img": "assets/mobilize-wiki.png", "target-blank": true, "description_html":"All materials: curricula, how-to guides, video tutorials, etc."})
   config.apps.findWhere({"title":"Android"}).set({"img":"assets/ohmageX-android.png","href":"https://play.google.com/store/apps/details?id=edu.ucla.oit.idsucla&hl=en_US"})
   config.apps.findWhere({"title":"iOS"}).set({"img":"assets/ohmageX-ios.jpg","href":"https://itunes.apple.com/us/app/ids-ucla/id1422869521?mt=8"})
