@@ -10,6 +10,24 @@
   <script data-main="main" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.18/require.min.js"></script>
 </head>
 <body>
+
+<div id="demo617" style="display: none;"></div>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);
+    document.getElementById("demo617").innerHTML = myObj.data.message;
+    $("#demo617").fadeIn('slow', function(){
+     $("#demo617").delay(3000).fadeOut();
+    });
+  }
+};
+xmlhttp.open("GET", "/app/registration/read", true);
+xmlhttp.send();
+</script>
+
 <div id="navbar"></div>
 
 
