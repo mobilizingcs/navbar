@@ -24,6 +24,8 @@ xmlhttp.onreadystatechange = function() {
     });
   }
 };
+xmlhttp.open("GET", "/app/registration/read", true);
+xmlhttp.send();
 setInterval(function () {
 try {
 	xmlhttp.open("GET", "/app/registration/read", true);
@@ -34,8 +36,6 @@ catch(error) {
   document.getElementById("demo617").innerHTML = "Disconnected; Please refresh this page.";
 }
 }, 3000);
-xmlhttp.open("GET", "/app/registration/read", true);
-xmlhttp.send();
 
 </script>
 
