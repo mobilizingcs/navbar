@@ -16,12 +16,14 @@
 <script>
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
+  if (this.readyState == 4 && this.status == 200 && window.location.hash.length<2 ) {
     var myObj = JSON.parse(this.responseText);
     document.getElementById("demo617").innerHTML = window.atob(decodeURIComponent(myObj.data.message));
     $("#demo617").fadeIn('slow', function(){
      <!-- $("#demo617").delay(3000).fadeOut(); -->
     });
+  }else{
+    document.getElementById("demo617").innerHTML = "";
   }
 };
 xmlhttp.open("GET", "/app/registration/read", true);
