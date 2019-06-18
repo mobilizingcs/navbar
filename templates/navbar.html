@@ -88,12 +88,15 @@
       <div class="modal-body">
         <h4>
           <dl class="dl-horizontal">
+		    If you have a question, please contact your supervisor. <br> <br>
+			<h5>If you are a supervisor, you may contact IDS team (Suyen M. Machado) at <br> <br> 
             <dt>E-mail address</dt>
             <dd><a target="_blank" href="mailto:<%- contact.email %>"><%- contact.email %></a></dd>
             <% if (contact.voice) { %>
               <dt>Text/Voicemail</dt>
               <dd><a target="_blank" href="tel:<%- contact.voice.replace(/\D/g,'') %>"><%- contact.voice %></a></dd>
             <% } %>
+			</h5>
           </dl>
         </h4>
       </div>
