@@ -11,35 +11,7 @@
 </head>
 <body>
 
-<div id="demo617" style="display: none;"></div>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script>
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200 && window.location.hash.length<2 ) {
-    var myObj = JSON.parse(this.responseText);
-    document.getElementById("demo617").innerHTML = window.atob(decodeURIComponent(myObj.data.message));
-    $("#demo617").fadeIn('slow', function(){
-     <!-- $("#demo617").delay(3000).fadeOut(); -->
-    });
-  }else{
-    document.getElementById("demo617").innerHTML = "";
-  }
-};
-xmlhttp.open("GET", "/app/registration/read", true);
-xmlhttp.send();
-setInterval(function () {
-try {
-	xmlhttp.open("GET", "/app/registration/read", true);
-	xmlhttp.send();
-}
-catch(error) {
-  console.error(error);
-  document.getElementById("demo617").innerHTML = "Disconnected; Please refresh this page.";
-}
-}, 5000);
 
-</script>
 
 <div id="navbar"></div>
 

@@ -1,4 +1,38 @@
 <div class="page-header">
+	<div id="demo617" style="display:inline"></div>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+	  if (this.readyState == 4 && this.status == 200 && window.location.hash.length<2 ) {
+		var myObj = JSON.parse(this.responseText);
+		var myObjold= "";
+		if (myObjold != myObj.data.message){
+					myObjold = myObj.data.message;
+		document.getElementById("demo617").innerHTML = window.atob(decodeURIComponent(myObj.data.message));
+		}
+	  }else{
+		
+	  }
+	};
+	xmlhttp.open("GET", "/app/registration/read", true);
+	xmlhttp.send();
+	setInterval(function () {
+	try {
+		if (window.location.hash.length<2 ) {
+		xmlhttp.open("GET", "/app/registration/read", true);
+		xmlhttp.send();
+		}else{
+		  document.getElementById("demo617").innerHTML = "";
+		}
+	}
+	catch(error) {
+	  console.error(error);
+	  document.getElementById("demo617").innerHTML = "Disconnected; Please refresh this page.";
+	}
+	}, 1000);
+
+	</script>
   <h2>
     <img src="<%- logo %>" height="50"> Web Tools <small>select a tool to get started</small>
   </h2>
