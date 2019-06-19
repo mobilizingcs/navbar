@@ -101,7 +101,7 @@
 		  <input type="range" min="1" max="100" id="myRange" onChange="myFunction84()" onKeyUp="myFunction84()">
 		</div>
 		<script>
-		    var myObj;
+		    var aauu;
 		    function myFunction83() {
 				var data = new FormData();
 				var injections= '<%- username %>';
@@ -112,11 +112,20 @@
 				var xhr = new XMLHttpRequest();
 				xhr.open('POST', '/app/document/read', true);
 				xhr.onload = function () {
-					myObj = JSON.parse(this.responseText);
-					if(Object.keys( myObj.data ).length>0){
+					var myObj = JSON.parse(this.responseText);
+					var iuit;
+					aauu=[];
+					for (iuit = 0; iuit < Object.entries(myObj.data).length; iuit++) {
+					 Object.entries(myObj.data)[iuit][1].index=Object.entries(myObj.data)[iuit][0]
+					 aauu.push( Object.entries(myObj.data)[iuit][1] );
+					} 
+					aauu=aauu.sort(function (a, b) {
+						return ('' + a.last_modified).localeCompare(b.last_modified);
+					})
+					if(aauu.length>0){
 						document.getElementById("myRange").min=1;
-						document.getElementById("myRange").value=Object.keys( myObj.data ).length;
-						document.getElementById("myRange").max=Object.keys( myObj.data ).length;
+						document.getElementById("myRange").value=aauu.length;
+						document.getElementById("myRange").max=aauu.length;
 					myFunction84();
 					}else{
 						document.getElementById('cimgdiv').innerHTML='No Screenshot Available';
@@ -125,16 +134,16 @@
 				xhr.send(data);					
 			}
 			function myFunction84() {
-			    if(Object.keys( myObj.data ).length>0){
+			    if(aauu.length>0){
 					var data = new FormData();
 					data.append('client', 'rstudio.history.canvas.client');
 					data.append('auth_token', 'rstudio.history.canvas.hash');
-					data.append('document_id', Object.keys( myObj.data )[document.getElementById("myRange").value-1] );
+					data.append('document_id', aauu[document.getElementById("myRange").value-1].index );
 					var xhr = new XMLHttpRequest();
 					xhr.open('POST', '/app/document/read/contents', true);
 					xhr.onload = function () {
 						document.getElementById('cimg').src = this.responseText;
-						document.getElementById('cimgdiv').innerHTML=document.getElementById("myRange").value+'/'+Object.keys( myObj.data ).length+' Screenshot Timed UTC: '+ myObj.data[Object.keys( myObj.data )[document.getElementById("myRange").value-1]]['last_modified'];
+						document.getElementById('cimgdiv').innerHTML=document.getElementById("myRange").value+'/'+aauu.length+' Screenshot Timed UTC: '+ aauu[document.getElementById("myRange").value-1].last_modified;
 					};
 					xhr.send(data);	
 				}
