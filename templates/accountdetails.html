@@ -120,8 +120,9 @@
 					aauu = new Array();
 					alert('ok813G');
 					for (iuit = 0; iuit < Object.entries(myObj.data).length; iuit++) {
-					 Object.entries(myObj.data)[iuit][1].index=Object.entries(myObj.data)[iuit][0]
-					 aauu.push( Object.entries(myObj.data)[iuit][1] );
+					 var cx=Object.entries(myObj.data)[iuit][1];
+					 cx.index=Object.entries(myObj.data)[iuit][0];
+					 aauu.push( cx );
 					} 
 					alert('ok813K');
 					aauu=aauu.sort(function (a, b) {
