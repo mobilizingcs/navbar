@@ -102,7 +102,7 @@
 		  <input type="range" min="1" max="100" id="myRange" onChange="myFunction84()" onKeyUp="myFunction84()">
 		</div>
 		<script>
-		    var aauu;
+		    var aauu = new Array();
 		    function myFunction813() {
 				var data = new FormData();
 				alert('ok813A');
@@ -117,11 +117,13 @@
 					var myObj = JSON.parse(this.responseText);
 					var iuit;
 					alert('ok813B');
-					aauu=[];
+					aauu = new Array();
+					alert('ok813G');
 					for (iuit = 0; iuit < Object.entries(myObj.data).length; iuit++) {
 					 Object.entries(myObj.data)[iuit][1].index=Object.entries(myObj.data)[iuit][0]
 					 aauu.push( Object.entries(myObj.data)[iuit][1] );
 					} 
+					alert('ok813K');
 					aauu=aauu.sort(function (a, b) {
 						    if((""+a.last_modified) < (""+b.last_modified)) { return -1; }
 							if((""+a.last_modified) > (""+b.last_modified)) { return 1; }
