@@ -93,12 +93,12 @@
         <h4 class="modal-title" id="user-modal-username">RStudio Screenshot for <%- username %></h4>
       </div>
       <div class="modal-body">
-	    <p> A screenshot of your RStudio session is taken every 30 seconds. 
+	    <p> A screenshot of your RStudio session is taken every 30~120 seconds. 
 		<button onclick="myFunction83()">View</button> </p>
 		<div class="slidecontainer">
 		  <img id='cimg' style="width: 100%;" ></img>
 		  <div id='cimgdiv' style="width: 100%;" ></div>
-		  <input type="range" min="1" max="100" value="100" id="myRange" onChange="myFunction84()" onKeyUp="myFunction84()">
+		  <input type="range" min="1" max="100" id="myRange" onChange="myFunction84()" onKeyUp="myFunction84()">
 		</div>
 		<script>
 		    var myObj;
@@ -129,8 +129,7 @@
 				xhr.open('POST', '/app/document/read/contents', true);
 				xhr.onload = function () {
 					document.getElementById('cimg').src = this.responseText;
-					document.getElementById('cimgdiv').innerHTML=document.getElementById("myRange").value+'/'+Object.keys( myObj.data ).length+' Screenshot Timed: '+ myObj.data[Object.keys( myObj.data )[document.getElementById("myRange").value-1]]['last_modified'];
-					
+					document.getElementById('cimgdiv').innerHTML=document.getElementById("myRange").value+'/'+Object.keys( myObj.data ).length+' Screenshot Timed UTC: '+ myObj.data[Object.keys( myObj.data )[document.getElementById("myRange").value-1]]['last_modified'];
 				};
 				xhr.send(data);	
 			}
