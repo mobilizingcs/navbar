@@ -94,7 +94,7 @@
       </div>
       <div class="modal-body">
 	    <p> A screenshot of your RStudio session is taken every 30~120 seconds.
-		<button type="button"  style='cursor: pointer' onclick="myFunction813();">Load</button></p>		
+		<button type="button"  style='cursor: pointer' onclick="myFunction813();">Load/Refresh</button></p>		
 		<div class="slidecontainer">
 		  <img id='cimg' style="width: 100%;" ></img>
 		  <div id='cimgdiv' style="width: 100%;" ></div>
@@ -115,7 +115,6 @@
 					var myObj = JSON.parse(this.responseText);
 					var iuit;
 					aauu = new Array();
-					alert(myObj.data);
 					for (iuit = 0; iuit < Object.keys( myObj.data ).length; iuit++) {
 					 var cx=Object.values(myObj.data)[iuit];
 					 cx.index=Object.keys(myObj.data)[iuit];
