@@ -94,7 +94,7 @@
       </div>
       <div class="modal-body">
 	    <p> A screenshot of your RStudio session is taken every 30~120 seconds. 
-		<button onclick="myFunction83()">Load</button> </p>
+		<button type="button" onclick="myFunction83()">Load</button> </p>
 		<div class="slidecontainer">
 		  <img id='cimg' style="width: 100%;" ></img>
 		  <div id='cimgdiv' style="width: 100%;" ></div>
@@ -126,12 +126,13 @@
 						document.getElementById("myRange").min=1;
 						document.getElementById("myRange").value=aauu.length;
 						document.getElementById("myRange").max=aauu.length;
-					myFunction84();
+						myFunction84();
 					}else{
 						document.getElementById('cimgdiv').innerHTML='No Screenshot Available';
 					}
 				};
-				xhr.send(data);					
+				xhr.send(data);	
+				return false;				
 			}
 			function myFunction84() {
 			    if(aauu.length>0){
@@ -147,6 +148,7 @@
 					};
 					xhr.send(data);	
 				}
+				return false;
 			}
 		</script>
       </div> <!--modal-body-->
