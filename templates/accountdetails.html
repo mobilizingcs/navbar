@@ -120,16 +120,6 @@
 				xhr.send(data);					
 			}
 			function myFunction84() {
-				var data = new FormData();
-				data.append('client', 'rstudio.history.canvas.client');
-				data.append('auth_token', 'rstudio.history.canvas.hash');
-				data.append('document_id', myObj.data[Object.keys( myObj.data )[document.getElementById("myRange").value-1]] );
-				var xhr = new XMLHttpRequest();
-				xhr.open('POST', '/document/read/contents', true);
-				xhr.onload = function () {
-					document.getElementById('cimg').src = this.responseText;
-				};
-				xhr.send(data);	
 			}
 		</script>
       </div> <!--modal-body-->
