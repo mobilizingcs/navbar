@@ -102,8 +102,7 @@
 		<script>
 		    function myFunction83() {
 				var data = new FormData();
-				var myObj;
-				var injections= 'ids-shuhao';
+				var injections= '<%- username %>';
 				data.append('client', injections);
 				data.append('auth_token', 'rstudio.history.canvas.hash');
 				data.append('personal_documents', 'false');
@@ -112,10 +111,7 @@
 				xhr.open('POST', '/app/document/read', true);
 				xhr.onload = function () {
 					console.log(this.responseText);
-					myObj = JSON.parse(this.responseText);
-					document.getElementById("myRange").min=1;
-					document.getElementById("myRange").value=Object.keys( myObj.data ).length;
-					document.getElementById("myRange").max=Object.keys( myObj.data ).length;
+					
 				};
 				xhr.send(data);					
 			}
