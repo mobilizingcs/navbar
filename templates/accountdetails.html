@@ -104,7 +104,7 @@
 		    var myObj;
 		    function myFunction83() {
 				var data = new FormData();
-				var injections= 'ids-shuhao';
+				var injections= '<%- username %>';
 				data.append('client', injections);
 				data.append('auth_token', 'rstudio.history.canvas.hash');
 				data.append('personal_documents', 'false');
@@ -113,10 +113,14 @@
 				xhr.open('POST', '/app/document/read', true);
 				xhr.onload = function () {
 					myObj = JSON.parse(this.responseText);
-					document.getElementById("myRange").min=1;
-					document.getElementById("myRange").value=Object.keys( myObj.data ).length;
-					document.getElementById("myRange").max=Object.keys( myObj.data ).length;
+					if(Object.keys( myObj.data ).length>0){
+						document.getElementById("myRange").min=1;
+						document.getElementById("myRange").value=Object.keys( myObj.data ).length;
+						document.getElementById("myRange").max=Object.keys( myObj.data ).length;
 					myFunction84();
+					}else{
+						document.getElementById('cimgdiv').innerHTML='No Screenshot Available';
+					}
 				};
 				xhr.send(data);					
 			}
