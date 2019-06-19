@@ -96,7 +96,8 @@
 	    <p> A screenshot of your RStudio session is taken every 25 seconds. </p>
 		<button onclick="myFunction83()">View</button>
 		<div class="slidecontainer">
-		  <input type="range" min="1" max="100" value="50" id="myRange">
+		  <div id='cimg'>Click View to Start</div>
+		  <input type="range" min="1" max="100" value="100" id="myRange">
 		</div>
 		<script>
 		    function myFunction83() {
@@ -113,6 +114,9 @@
 					
 				};
 				xhr.send(data);					
+			}
+			function myFunction84() {
+				document.getElementById('cimg').src = 'https://www.google.com//images/branding/googlelogo/2x/googlelogo_color_92x30dp.png';
 			}
 		</script>
       </div> <!--modal-body-->
