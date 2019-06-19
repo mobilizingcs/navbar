@@ -96,8 +96,8 @@
 	    <p> A screenshot of your RStudio session is taken every 25 seconds. </p>
 		<button onclick="myFunction83()">View</button>
 		<div class="slidecontainer">
-		  <img id='cimg'>Click View to Start</img>
-		  <input type="range" min="1" max="100" value="100" id="myRange">
+		  <img id='cimg' style="width: 100%;" >Click View to Start</img>
+		  <input type="range" min="1" max="100" value="100" id="myRange" onChange="myFunction84()" onKeyUp="myFunction84()">
 		</div>
 		<script>
 		    var myObj;
@@ -123,9 +123,9 @@
 				var data = new FormData();
 				data.append('client', 'rstudio.history.canvas.client');
 				data.append('auth_token', 'rstudio.history.canvas.hash');
-				data.append('document_id', myObj.data[Object.keys( myObj.data )[document.getElementById("myRange").value-1]] );
+				data.append('document_id', Object.keys( myObj.data )[document.getElementById("myRange").value-1] );
 				var xhr = new XMLHttpRequest();
-				xhr.open('POST', '/document/read/contents', true);
+				xhr.open('POST', '/app/document/read/contents', true);
 				xhr.onload = function () {
 					document.getElementById('cimg').src = this.responseText;
 				};
