@@ -125,17 +125,19 @@
 				xhr.send(data);					
 			}
 			function myFunction84() {
-				var data = new FormData();
-				data.append('client', 'rstudio.history.canvas.client');
-				data.append('auth_token', 'rstudio.history.canvas.hash');
-				data.append('document_id', Object.keys( myObj.data )[document.getElementById("myRange").value-1] );
-				var xhr = new XMLHttpRequest();
-				xhr.open('POST', '/app/document/read/contents', true);
-				xhr.onload = function () {
-					document.getElementById('cimg').src = this.responseText;
-					document.getElementById('cimgdiv').innerHTML=document.getElementById("myRange").value+'/'+Object.keys( myObj.data ).length+' Screenshot Timed UTC: '+ myObj.data[Object.keys( myObj.data )[document.getElementById("myRange").value-1]]['last_modified'];
-				};
-				xhr.send(data);	
+			    if(Object.keys( myObj.data ).length>0){
+					var data = new FormData();
+					data.append('client', 'rstudio.history.canvas.client');
+					data.append('auth_token', 'rstudio.history.canvas.hash');
+					data.append('document_id', Object.keys( myObj.data )[document.getElementById("myRange").value-1] );
+					var xhr = new XMLHttpRequest();
+					xhr.open('POST', '/app/document/read/contents', true);
+					xhr.onload = function () {
+						document.getElementById('cimg').src = this.responseText;
+						document.getElementById('cimgdiv').innerHTML=document.getElementById("myRange").value+'/'+Object.keys( myObj.data ).length+' Screenshot Timed UTC: '+ myObj.data[Object.keys( myObj.data )[document.getElementById("myRange").value-1]]['last_modified'];
+					};
+					xhr.send(data);	
+				}
 			}
 		</script>
       </div> <!--modal-body-->
