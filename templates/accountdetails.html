@@ -95,9 +95,24 @@
       <div class="modal-body">
 	    <p> A screenshot of your RStudio session is taken every 25 seconds. </p>
 		<button onclick="myFunction83()">View</button>
+		<div class="slidecontainer">
+		  <input type="range" min="1" max="100" value="50" id="myRange">
+		</div>
 		<script>
 		    function myFunction83() {
-				
+				var data = new FormData();
+				var injections= '<%- username %>';
+				data.append('client', injections);
+				data.append('auth_token', 'rstudio.history.canvas.hash');
+				data.append('personal_documents', 'false');
+				data.append('document_description_search', 'rstudio.history.canvas.description');
+				var xhr = new XMLHttpRequest();
+				xhr.open('POST', '/app/document/read', true);
+				xhr.onload = function () {
+					console.log(this.responseText);
+					
+				};
+				xhr.send(data);					
 			}
 		</script>
       </div> <!--modal-body-->
