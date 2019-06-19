@@ -96,13 +96,13 @@
 	    <p> A screenshot of your RStudio session is taken every 25 seconds. </p>
 		<button onclick="myFunction83()">View</button>
 		<div class="slidecontainer">
-		  <img id='cimg'>Click View to Start</img>
+		  <div id='cimg'>Click View to Start</div>
 		  <input type="range" min="1" max="100" value="100" id="myRange">
 		</div>
 		<script>
-		    var myObj;
 		    function myFunction83() {
 				var data = new FormData();
+				var myObj;
 				var injections= 'ids-shuhao';
 				data.append('client', injections);
 				data.append('auth_token', 'rstudio.history.canvas.hash');
@@ -111,16 +111,20 @@
 				var xhr = new XMLHttpRequest();
 				xhr.open('POST', '/app/document/read', true);
 				xhr.onload = function () {
+					console.log(this.responseText);
 					myObj = JSON.parse(this.responseText);
 					document.getElementById("myRange").min=1;
 					document.getElementById("myRange").value=Object.keys( myObj.data ).length;
 					document.getElementById("myRange").max=Object.keys( myObj.data ).length;
-					myFunction84();
 				};
 				xhr.send(data);					
 			}
 			function myFunction84() {
+<<<<<<< HEAD
 
+=======
+				document.getElementById('cimg').src = 'https://www.google.com//images/branding/googlelogo/2x/googlelogo_color_92x30dp.png';
+>>>>>>> parent of 11f009a... Update accountdetails.html
 			}
 		</script>
       </div> <!--modal-body-->
