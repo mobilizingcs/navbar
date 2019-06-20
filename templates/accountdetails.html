@@ -156,19 +156,19 @@
 			}
 			function myFunction812() {
 			    myFunction813();
-				if(cask){
-					document.getElementById('cask0').value= "Pause";
-				}else{
-					document.getElementById('cask0').value= "Paused";
-				}
 				setInterval(function () {
 					try {
+						if(cask){
+							document.getElementById('cask0').value= "Pause";
+						}else{
+							document.getElementById('cask0').value= "Paused";
+						}
 						if(cask && $('#user-modal3').hasClass('in') ){myFunction813()};
 					}
 					catch(error) {
 					  console.error(error);
 					}
-				}, 1000);
+				}, 500);
 				return false;
 			}
 		</script>
