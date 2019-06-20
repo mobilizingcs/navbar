@@ -94,7 +94,8 @@
       </div>
       <div class="modal-body">
 	    <p> A screenshot of your RStudio session is taken every 30~120 seconds.
-		<button id="cask0" type="button" style='cursor: pointer' onclick="{cask=!cask;}">Pause</button></p>		
+		<button type="button" id="cask0" style='cursor: pointer' onclick="{cask=!cask;}">Pause</button>  
+		<input type="checkbox" id="lyft3"> Sync</p>		
 		<div class="slidecontainer">
 		  <img id='cimg' style="width: 100%;" ></img>
 		  <div id='cimgdiv' style="width: 100%;" ></div>
@@ -168,7 +169,7 @@
 					catch(error) {
 					  console.error(error);
 					}
-				}, 500);
+				}, 250);
 				return false;
 			}
 		</script>
