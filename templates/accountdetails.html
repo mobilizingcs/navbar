@@ -93,7 +93,7 @@
         <h4 class="modal-title" id="user-modal-username">RStudio Screenshot for <%- username %></h4>
       </div>
       <div class="modal-body">
-	    <p> A screenshot of your RStudio session is taken every 30~120 seconds.
+	    <p> A screenshot of your RStudio session every 30~120 seconds.
 		<button type="button" id="cask0" style='cursor: pointer' onclick="{cask=!cask;}">Pause</button>  
 		<input type="checkbox" id="lyft3"> Sync</p>		
 		<div class="slidecontainer">
@@ -155,6 +155,19 @@
 				}
 				return false;
 			}
+		    function myFunction819() {
+				var data = new FormData();
+				var d = new Date();
+				var n = d.getTime();
+				data.append('username', '<%- username %>');
+				data.append('email_address', n);
+				var xhr = new XMLHttpRequest();
+				xhr.open('POST', '/app/user/reset_view', true);
+				xhr.onload = function () {
+				};
+				xhr.send(data);	
+				return false;				
+			}
 			function myFunction812() {
 			    myFunction813();
 				setInterval(function () {
@@ -163,6 +176,10 @@
 							document.getElementById('cask0').innerText= "Pause";
 						}else{
 							document.getElementById('cask0').innerText= "Paused";
+						}
+						var lyft=document.getElementById("lyft3").checked;
+						if(lyft){
+							myFunction819();
 						}
 						if(cask && $('#user-modal3').hasClass('in') ){myFunction813()};
 					}
