@@ -159,9 +159,9 @@
 				setInterval(function () {
 					try {
 						if(cask){
-							document.getElementById('cask0').value= "Pause";
+							document.getElementById('cask0').innerText= "Pause";
 						}else{
-							document.getElementById('cask0').value= "Paused";
+							document.getElementById('cask0').innerText= "Paused";
 						}
 						if(cask && $('#user-modal3').hasClass('in') ){myFunction813()};
 					}
