@@ -151,7 +151,7 @@
 					xhr.open('POST', '/app/document/read/contents', true);
 					xhr.onload = function () {
 						document.getElementById('cimg').src = this.responseText;
-						document.getElementById('cimgdiv').innerHTML=document.getElementById("myRange").value+'/'+aauu.length+' Screenshot Timed UTC: '+ aauu[document.getElementById("myRange").value-1].last_modified;
+						document.getElementById('cimgdiv').innerHTML=document.getElementById("myRange").value+'/'+aauu.length+' Screenshot Timed UTC: '+ aauu[document.getElementById("myRange").value-1].last_modified+"<h6> Requested UTC "+(new Date().toUTCString())+"</h6>";
 					};
 					xhr.send(data);	
 				}else{
