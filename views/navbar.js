@@ -71,7 +71,7 @@ define([
           user_details['permissions']['can_create_classes'] ? $("#admin-link2").show() : $("#admin-link2").hide();
 		  user_details['permissions']['can_create_classes'] ? $("#admin-link3").show() : $("#admin-link3").hide();
 		  user_details['permissions']['can_create_classes'] ? $("a#admin-link77").attr("href", "#shiny?admin=true&username="+username) : $("a#admin-link77").attr("href", "#shiny?&username="+username);
-		  user_details['permissions']['can_create_classes'] ? $("#cate972").show() : $("#cate972").hide();
+		  
 		  
           that.accountDetailsModal(username, user_details);
 		  
