@@ -70,7 +70,7 @@ define([
           user_details['permissions']['admin'] ? $("#admin-link").show() : $("#admin-link").hide();
           user_details['permissions']['can_create_classes'] ? $("#admin-link2").show() : $("#admin-link2").hide();
 		  user_details['permissions']['can_create_classes'] ? $("#admin-link3").show() : $("#admin-link3").hide();
-		  user_details['permissions']['can_create_classes'] ? $("#admin-link77").attr("href", "#shiny?admin=true") : $("#admin-link77").attr("href", "#shiny");
+		  user_details['permissions']['can_create_classes'] ? $("#a[href='#shiny?username=unknown0']").attr("href", "#shiny?admin=true") : $("#a[href='#shiny?username=unknown0']").attr("href", "#shiny");
           that.accountDetailsModal(username, user_details);
         });
       })
