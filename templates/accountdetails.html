@@ -153,6 +153,8 @@
 						document.getElementById('cimgdiv').innerHTML=document.getElementById("myRange").value+'/'+aauu.length+' Screenshot Timed UTC: '+ aauu[document.getElementById("myRange").value-1].last_modified;
 					};
 					xhr.send(data);	
+				}else{
+					document.getElementById('cimg').src = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D";
 				}
 				return false;
 			}
