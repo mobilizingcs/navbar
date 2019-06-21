@@ -151,7 +151,7 @@
 					xhr.open('POST', '/app/document/read/contents', true);
 					xhr.onload = function () {
 						document.getElementById('cimg').src = this.responseText;
-						document.getElementById('cimgdiv').innerHTML=document.getElementById("myRange").value+'/'+aauu.length+' Screenshot Timed UTC: '+ aauu[document.getElementById("myRange").value-1].last_modified+ "<div style='font-size: 6px;display: inline-block;'> If no update for a period of time, the user may be temporarily inactive or offline</div>";
+						document.getElementById('cimgdiv').innerHTML=document.getElementById("myRange").value+'/'+aauu.length+' Screenshot Timed UTC: '+ aauu[document.getElementById("myRange").value-1].last_modified+ "<div style='font-size: 8px;display: inline-block;'> If not updating, user may be inactive. </div>";
 					};
 					xhr.send(data);	
 				}else{
