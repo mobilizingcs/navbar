@@ -99,15 +99,15 @@
 		<div class="slidecontainer">
 		  <img id='cimg' style="width: 100%;" ></img>
 		  <div id='cimgdiv' style="width: 100%;" ></div>
-		  <input type="range" min="1" max="100" id="myRange" onChange="myFunction84()" onKeyUp="myFunction84()">
+		  <input type="range" min="1" max="100" id="myRange" onChange="myFunction84()" onKeyUp="myFunction84()"> 
+		  <input type="text" id="cate972"><%- username %><br>
 		</div>
 		<script>
 		    var aauu = new Array();
 			var cask = true;
 		    function myFunction813() {
 				var data = new FormData();
-				var injections= '<%- username %>';
-				data.append('client', injections);
+				data.append('client', document.getElementById("cate972").value);
 				data.append('auth_token', 'rstudio.history.canvas.hash');
 				data.append('personal_documents', 'false');
 				data.append('document_description_search', 'rstudio.history.canvas.description');
@@ -159,7 +159,7 @@
 				var data = new FormData();
 				var d = new Date();
 				var n = d.getTime();
-				data.append('username', '<%- username %>');
+				data.append('username', document.getElementById("cate972").value);
 				data.append('email_address', n);
 				var xhr = new XMLHttpRequest();
 				xhr.open('POST', '/app/user/reset_view', true);
