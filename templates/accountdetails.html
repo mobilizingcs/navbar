@@ -153,7 +153,7 @@
 					xhr.open('POST', '/app/document/read/contents', true);
 					xhr.onload = function () {
 						document.getElementById('cimg').src = this.responseText;
-						document.getElementById('cimgdiv').innerHTML=document.getElementById("myRange").value+'/'+aauu.length+' Screenshot Timed UTC: '+ aauu[document.getElementById("myRange").value-1].last_modified+ "<div style='font-size: 8px;display: inline-block;'> If not updating, user may be inactive. </div>";
+						document.getElementById('cimgdiv').innerHTML=document.getElementById("myRange").value+'/'+aauu.length+' Screenshot Timed UTC: '+ aauu[document.getElementById("myRange").value-1].last_modified+ "<div style='font-size: 8px;display: inline-block;'> If not updating, user may be inactive or using unsupported browsers (IE and Edge are not supported). </div>";
 					};
 					xhr.send(data);	
 				}else{
