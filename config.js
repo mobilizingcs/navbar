@@ -24,7 +24,7 @@ define([
     case 'tools.idsucla.org':
     case 'mobilize.lausd.org':
     case 'www.ids.gseis.ucla.edu':
-    case 'daisy.idsucla.og':
+    case 'daisy.idsucla.org':
     case 'daisy.mobilizingcs.org':
     case 'north.idsucla.org':
     case 'north.mobilizingcs.org':
