@@ -24,6 +24,7 @@ define([
     case 'tools.idsucla.org':
     case 'mobilize.lausd.org':
     case 'www.ids.gseis.ucla.edu':
+    case 'socal.idsucla.org':
     case 'daisy.idsucla.org':
     case 'daisy.mobilizingcs.org':
     case 'north.idsucla.org':
@@ -36,6 +37,16 @@ define([
     case 'idaho.mobilizingcs.org':
     case 'nj.idsucla.org':
     case 'nj.mobilizingcs.org':
+    case 'nscs.idsucla.org':
+    case 'pcsd.idsucla.org':
+    case 'sps.idsucla.org':
+    case 'slsd.idsucla.org':
+    case 'frsd.idsucla.org':
+    case 'msd.idsucla.org':
+    case 'jcsd.idsucla.org':
+    case 'bsd.idsucla.org':
+    case 'mksd.idsucla.org':
+    case 'hsd.idsucla.org':
       config = idsConfig;
       break;
     case 'ids.centinela.k12.ca.us':
