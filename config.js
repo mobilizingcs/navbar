@@ -31,6 +31,10 @@ define([
     case 'north.mobilizingcs.org':
     case 'west.idsucla.org':
     case 'west.mobilizingcs.org':
+    case 'ca.idsucla.org':
+    case 'ca.mobilizingcs.org':
+    case 'california.idsucla.org':
+    case 'california.mobilizingcs.org':
     case 'oregon.idsucla.org':
     case 'oregon.mobilizingcs.org':
     case 'idaho.idsucla.org':
