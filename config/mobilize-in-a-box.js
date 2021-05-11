@@ -8,9 +8,9 @@ define([
 ], function($, _, Backbone, webToolsCollection, mobileAppsCollection, ohmageConfig){
   var config = ohmageConfig.initialize();
   config.footer = "This material is based upon work supported by the National Science Foundation under Grant Number 0962919. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation. For more information about the Mobilize grant please visit <a href='http://www.mobilizingcs.org/''>www.mobilizingcs.org</a>";
-  config.logo = 'assets/mobilize-logo-full.png'
-  config.icon = 'assets/mobilize-icon.png'
-  config.title = 'Mobilize'
+  config.logo = 'assets/ids-height-80.png'
+  config.icon = 'assets/ids-icon'
+  config.title = 'IDS'
   config.app_name = 'UCLA MobilizingCS'
   config.contact = {'email': "help@mobilizingcs.org"}  
   config.tools.add({"title":"Classes",  "href": "#classes",  "img": "assets/classsetup.png",  "description_html":"Class management tool"})
