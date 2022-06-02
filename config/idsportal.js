@@ -4,7 +4,7 @@ define([
   'backbone',
   'collections/webtools',
   'collections/mobileapps',
-  'config/ohmage'
+  'config/ohmage0'
 ], function($, _, Backbone, webToolsCollection, mobileAppsCollection, ohmageConfig){
   var config = ohmageConfig.initialize();
   config.footer = "This material is based upon work supported by the National Science Foundation under Grant Number 0962919. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation. For more information about the Mobilize grant please visit <a href='http://www.mobilizingcs.org/''>www.mobilizingcs.org</a>";
