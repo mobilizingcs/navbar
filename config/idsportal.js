@@ -15,7 +15,7 @@ define([
   config.contact = {'email': "support@idsucla.org"}
   config.tools.findWhere({"title":"Wiki"}).set({"href": "https://curriculum.idsucla.org/video/", "img": "assets/help.png", "description_html":"Instructional Videos on Using the Tools"})
   config.tools.add({"title":"Class Setup",  "href": "#classes",  "img": "assets/classsetup.png",  "description_html":"Class management tool"})
-  config.tools.add({"title":"RStudio",  "href": "https://rstudio.cloud/projects/", "img": "assets/rstudio.png",  "description_html":"User-friendly interface for R","target-blank": true, "target":"_blank"})
+  config.tools.add({"title":"RStudio",  "href": "https://rstudio.cloud/projects/", "img": "assets/rstudio.png",  "description_html":"User-friendly interface for R", "target_blank": true})
   config.apps.findWhere({"title":"Android"}).set({"img":"assets/ohmageX-android.png","href":"https://play.google.com/store/apps/details?id=edu.ucla.oit.idsucla&hl=en_US"})
   config.apps.findWhere({"title":"iOS"}).set({"img":"assets/ohmageX-ios.jpg","href":"https://itunes.apple.com/us/app/ids-ucla/id1422869521?mt=8"})
   config.navs.findWhere({"name":"Explore"}).set({"navs": [{"name": "Campaign Monitoring", "href": "#campaigns/#monitor"}, {"name": "Interactive Dashboard", "href":"#campaigns/#dashboard"}, {"name": "PlotApp", "href":"#campaigns/#plotapp"}, {"name":"RStudio", "href":"https://rstudio.cloud/projects/","target-blank": true},{"name":"Demo Data", "href":"#demo"}]})
