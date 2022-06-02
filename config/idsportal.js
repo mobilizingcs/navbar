@@ -20,5 +20,6 @@ define([
   config.apps.findWhere({"title":"iOS"}).set({"img":"assets/ohmageX-ios.jpg","href":"https://itunes.apple.com/us/app/ids-ucla/id1422869521?mt=8"})
   config.navs.findWhere({"name":"Explore"}).set({"navs": [{"name": "Campaign Monitoring", "href": "#campaigns/#monitor"}, {"name": "Interactive Dashboard", "href":"#campaigns/#dashboard"}, {"name": "PlotApp", "href":"#campaigns/#plotapp"}, {"name":"RStudio", "href":"#rstudio"},{"name":"Demo Data", "href":"#demo"}]})
   config.navs.add({"name":"Classes", "short_name":"Classes", "href": "#classes"})
+  config.tools.findWhere({"img":"assets/help.png"}).set({"title":"Help"})
   return config;
 });
