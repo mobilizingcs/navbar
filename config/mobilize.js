@@ -15,7 +15,7 @@ define([
   config.contact = {'email': "help@mobilizingcs.org", 'voice':'(818) 527-2367'}
   config.tools.add({"title":"Class Setup",  "href": "#teacher",  "img": "assets/classsetup.png",  "description_html":"LAUSD Teacher class creation tool"})
   config.tools.add({"title":"RStudio",  "href": "https://rstudio.mobilizingcs.org", "target-blank": true,  "img": "assets/rstudio.png",  "description_html":"User-friendly interface for R"})
-  config.tools.findWhere({"title":"Wiki"}).set({"href": "https://wiki.mobilizingcs.org", "img": "assets/mobilize-wiki.png",  "description_html":"All materials: curricula, how-to guides, video tutorials, etc."})
+  config.tools.findWhere({"title":"Help"}).set({"href": "https://wiki.mobilizingcs.org", "img": "assets/mobilize-wiki.png",  "description_html":"All materials: curricula, how-to guides, video tutorials, etc."})
   config.apps.findWhere({"title":"Android"}).set({"img":"assets/ohmageX-android.png","href":"https://play.google.com/store/apps/details?id=org.ohmage.mobilizingcs&hl=en"})
   config.apps.findWhere({"title":"iOS"}).set({"img":"assets/ohmageX-ios.jpg","href":"https://itunes.apple.com/us/app/ucla-mobilizingcs/id601202066?mt=8"})
 

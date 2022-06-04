@@ -16,7 +16,7 @@ define([
     el: $("#navbar"),
     initialize: function(){
       var template = _.template(navbarTemplate);
-      this.$el.html(template({navs: config.navs.models, title: config.title, icon: config.icon, wiki: config.tools.findWhere({"title":"Wiki"}), contact: config.contact}));
+      this.$el.html(template({navs: config.navs.models, title: config.title, icon: config.icon, wiki: config.tools.findWhere({"title":"Help"}), contact: config.contact}));
       document.title = config.title;
 
       oh.user.whoami().done(function(username){
