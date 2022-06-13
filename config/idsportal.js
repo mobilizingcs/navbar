@@ -13,7 +13,7 @@ define([
   config.title = 'IDS Portal'
   config.app_name = 'IDS UCLA APP'
   config.contact = {'email': "support@idsucla.org"}
-  config.tools.findWhere({"title":"Help"}).set({"href": "https://curriculum.idsucla.org/video/", "img": "assets/help.png", "description_html":"Instructional Videos on Using the Tools"})
+  config.tools.findWhere({"title":"Tutorial"}).set({"href": "https://curriculum.idsucla.org/video/", "img": "assets/help.png", "description_html":"Instructional Videos on Using the Tools"})
   config.tools.add({"title":"Class Setup",  "href": "#classes",  "img": "assets/classsetup.png",  "description_html":"Class management tool"})
   config.tools.add({"title":"RStudio",  "href": "https://rstudio.cloud/projects/", "img": "assets/rstudio.png",  "description_html":"User-friendly interface for R", "target_blank": true,"target-blank": true})
   config.apps.findWhere({"title":"Android"}).set({"img":"assets/ohmageX-android.png","href":"https://play.google.com/store/apps/details?id=edu.ucla.oit.idsucla&hl=en_US"})

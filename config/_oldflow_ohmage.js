@@ -21,7 +21,7 @@ define([
   config.tools.add({"title":"Dashboard",  "href": "#campaign_mgmt/#dashboard",  "img": "assets/dashboard.png",  "description_html":"Interactive data exploration. Also available: <a target='_blank' href='/publicdashboard'>Public board</a>"})
   config.tools.add({"title":"Plot App",  "href": "/navbar/plotapp", "img": "assets/plotapp.png",  "description_html":"R-based data exploration"})
   config.tools.add({"title":"Campaign Monitor",  "href": "/navbar/monitor", "img": "assets/monitoring.png",  "description_html":"Campaign progress tracking tool"})
-  config.tools.add({"title":"Help",  "href": "https://wiki.ohmage.org", "target-blank": true,  "img": "assets/ohmage-wiki.png",  "description_html":"How-to guides, video tutorials, etc."})
+  config.tools.add({"title":"Tutorial",  "href": "https://wiki.ohmage.org", "target-blank": true,  "img": "assets/ohmage-wiki.png",  "description_html":"How-to guides, video tutorials, etc."})
   config.apps = new mobileAppsCollection();
   config.apps.add({"title":"Android","img":"assets/ohmageX-android.png","href":"https://play.google.com/store/apps/details?id=org.ohmage.app"})
   config.apps.add({"title":"iOS","img":"assets/ohmageX-ios.jpg","href":"https://itunes.apple.com/us/app/ohmagex/id980069961?mt=8"})
